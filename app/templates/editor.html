@@ -1,0 +1,20 @@
+{% extends 'subbase.html' %}
+
+{% block content %}
+
+
+<form method="POST" style=" height: 800px; width: 800px; margin-top: 100px; margin-left: 600px;">
+    {{form.csrf_token}}
+    {{ form.title.label }}{{ form.title() }}
+    <br></br>
+    {{ form.body.label }}{{ form.body() }}
+    <input type="submit" value="Go">
+
+</form>
+
+{{ ckeditor.load() }}
+{{ ckeditor.config(name='body') }}
+
+{% endblock %}
+
+

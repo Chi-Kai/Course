@@ -1,0 +1,213 @@
+{% extends 'base.html' %}
+
+
+{% block bt %}
+
+<div class="navbar-collapse collapse">
+  <ul class="nav navbar-nav">
+    <li ><a href="{{url_for('view.index')}}">课程简介</a></li>
+    <li ><a href="{{url_for('view.image')}}">图像处理</a></li>
+    <li class="active"><a href="{{url_for('view.sound')}}">音频处理</a></li>
+    <li><a href="{{url_for('view.video')}}">视频处理</a></li>
+ 
+    <li><a href="{{url_for('view.messages')}}">课程通知</a></li>
+    <li><a href="{{url_for('view.work')}}">作业展示</a></li>
+    <li><a href="{{url_for('view.join')}}">我要参与</a></li>
+    <li><a href="{{url_for('view.more')}}">查看更多</a></li>
+  </ul>
+</div>
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="product-big-title-area">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="product-bit-title text-center">
+
+          <h2>重点解读</h2>
+       </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="single-product-area">
+  <div class="zigzag-bottom"></div>
+  <div class="container">
+    <div class="row">
+
+
+      <div class="col-md-3 col-sm-6">
+        <div class="single-shop-product">
+          <div class="product-upper">
+            <a href = "{{url_for('view.MIDI')}}"> 
+             <img src="{{url_for('static',filename='images/MID.jpg')}}"  alt=""> 
+            </a>
+          </div>
+          <h2><a href=""{{url_for('view.MIDI')}}"" >&#12288;MID</a></h2>
+          <div class="product-carousel-price"> <ins>难度系数★★★☆☆</ins> </div>
+          
+     
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6">
+        <div class="single-shop-product">
+          <div class="product-upper">
+            <a href = '"{{url_for('view.MP3')}}"'> 
+             <img src="{{url_for('static',filename='images/MP3.jpg')}}"  alt=""> 
+            </a>
+          </div>
+          <h2><a href=""{{url_for('view.MP3')}}"" >&#12288;MP3</a></h2>
+          <div class="product-carousel-price"> <ins>难度系数★★☆☆☆</ins> </div>
+     
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6">
+        <div class="single-shop-product">
+          <div class="product-upper">
+            <a href = '"{{url_for('view.RA')}}"'> 
+             <img src="{{url_for('static',filename='images/RealAudio.jpg')}}"  alt=""> 
+            </a>
+          </div>
+          <h2><a href=""{{url_for('view.RA')}}"" >&#12288;RealAudio</a></h2>
+         <div class="product-carousel-price"> <ins>难度系数★★★☆☆</ins> </div>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6">
+        <div class="single-shop-product">
+          <div class="product-upper">
+            <a href = '"{{url_for('view.WAV')}}"'> 
+             <img src="{{url_for('static',filename='images/WMA.jpg')}}"  alt=""> 
+            </a>
+          </div>
+          <h2><a href=""{{url_for('view.WAV')}}"" >&#12288;WAV</a></h2>
+        <div class="product-carousel-price"> <ins>难度系数★★★★☆</ins> </div>       
+   
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6">
+        <div class="single-shop-product">
+          <div class="product-upper">
+            <a href = 'WMA.html'> 
+             <img src="{{url_for('static',filename='images/WMA.jpg')}}"  alt=""> 
+            </a>
+          </div>
+          <h2><a href="WMA.html" >&#12288;WMA</a></h2>
+         <div class="product-carousel-price"> <ins>难度系数★★★★☆</ins> </div>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6">
+        <div class="single-shop-product">
+          <div class="product-upper">
+            <a href = '波形编码.html'> 
+             <img src="{{url_for('static',filename='images/波形编码.jpg')}}"  alt=""> 
+            </a>
+          </div>
+          <h2><a href="波形编码.html" >&#12288;波形编码</a></h2>
+        <div class="product-carousel-price"> <ins>难度系数★★★★☆</ins> </div>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6">
+        <div class="single-shop-product">
+          <div class="product-upper">
+            <a href = '参数编码.html'> 
+             <img src="{{url_for('static',filename='images/参数编码.jpg')}}"  alt=""> 
+            </a>
+          </div>
+          <h2><a href="参数编码.html" >&#12288;参数编码</a></h2>
+        <div class="product-carousel-price"> <ins>难度系数★★★★☆</ins> </div>
+      
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6">
+        <div class="single-shop-product">
+          <div class="product-upper">
+            <a href = '混合编码.html'> 
+             <img src="{{url_for('static',filename='images/混合编码.jpg')}}"  alt=""> 
+            </a>
+          </div>
+          <h2><a href="混合编码.html" >&#12288;参数编码</a></h2>
+         <div class="product-carousel-price"> <ins>难度系数★★★★☆</ins> </div>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6">
+        <div class="single-shop-product">
+          <div class="product-upper">
+            <a href = 'AAC.html'> 
+             <img src="{{url_for('static',filename='images/AAC.jpg')}}"  alt=""> 
+            </a>
+          </div>
+          <h2><a href="AAC.html" >&#12288;AAC</a></h2>
+        <div class="product-carousel-price"> <ins>难度系数★★★★☆</ins> </div>
+      
+        </div>
+      </div>
+
+     <div class="col-md-3 col-sm-6">
+        <div class="single-shop-product">
+          <div class="product-upper">
+            <a href = 'OGG.html'> 
+             <img src="{{url_for('static',filename='images/OGG.jpg')}}"  alt=""> 
+            </a>
+          </div>
+          <h2><a href="OGG.html" >&#12288;OGG</a></h2>
+         <div class="product-carousel-price"> <ins>难度系数★★★★☆</ins> </div>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6">
+        <div class="single-shop-product">
+          <div class="product-upper">
+            <a href = 'VOF.html'> 
+             <img src="{{url_for('static',filename='images/VQF.jpg')}}"  alt=""> 
+            </a>
+          </div>
+          <h2><a href="VQF.html" >&#12288;VQF</a></h2>
+        <div class="product-carousel-price"> <ins>难度系数★★★★☆</ins> </div>
+        </div>
+      </div>
+
+     <div class="col-md-3 col-sm-6">
+        <div class="single-shop-product">
+          <div class="product-upper">
+            <a href = '混合编码.html'> 
+             <img src="{{url_for('static',filename='images/混合编码.jpg')}}"  alt=""> 
+            </a>
+          </div>
+          <h2><a href="混合编码.html" >&#12288;参数编码</a></h2>
+        <div class="product-carousel-price"> <ins>难度系数★★★★☆</ins> </div>
+       </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="product-pagination text-center">
+          <nav>
+            <ul class="pagination">
+              <li> <a href="#" aria-label="上一页"> <span aria-hidden="true">&laquo;</span> </a> </li>
+              <li><a href="sound.html">1</a></li>
+              <li><a href="sound2.html">2</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">4</a></li>
+              <li><a href="#">5</a></li>
+              <li> <a href="#" aria-label="下一页"> <span aria-hidden="true">&raquo;</span> </a> </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

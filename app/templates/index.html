@@ -1,0 +1,166 @@
+{% extends 'base.html' %}
+
+{% block bt %}
+
+<div class="navbar-collapse collapse">
+  <ul class="nav navbar-nav">
+  <li class="active"><a href="{{url_for('view.index')}}">课程简介</a></li>
+    <li><a href="{{url_for('view.image')}}">图像处理</a></li>
+    <li><a href="{{url_for('view.sound')}}">音频处理</a></li>
+    <li><a href="{{url_for('view.video')}}">视频处理</a></li>
+ 
+    <li><a href="{{url_for('view.messages')}}">课程通知</a></li>
+    <li><a href="{{url_for('view.work')}}">作业展示</a></li>
+    <li><a href="{{url_for('view.join')}}">我要参与</a></li>
+    <li><a href="{{url_for('view.more')}}">查看更多</a></li>
+  </ul>
+</div>
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="slider-area">
+    <div class="block-slider block-slider4">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <ul id="bxslider-home4">
+	            
+              <li> <img src="{{url_for('static',filename='images/海事大学.jpg')}}" alt="Slide"> </li>
+              <li> <img src="{{url_for('static',filename='images/老师简介.jpg')}}" alt="Slide"> </li>
+              <li> <img src="{{url_for('static',filename='images/课程宣传.jpg')}}" alt="Slide"> </li>
+
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="promo-area">
+    <div class="zigzag-bottom"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 col-sm-6">
+          <div class="single-promo promo1"> <i class="fa fa-refresh"></i>
+            <p>7天无理由退课</p>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <div class="single-promo promo2"> <i class="fa fa-truck"></i>
+            <p>技术支持</p>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <div class="single-promo promo3"> <i class="fa fa-lock"></i>
+            <p>名师保障</p>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <div class="single-promo promo4"> <i class="fa fa-gift"></i>
+            <p>豪华教室</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="maincontent-area">
+    <div class="zigzag-bottom"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="latest-product">
+            <h2 class="section-title">观看最多</h2>
+            <div class="product-carousel">
+
+
+              <div class="single-product">
+		  
+		      <div class="product-f-image"> <img src="{{url_for('static',filename='images/算术编码.jpg')}}" alt="">
+                  <div class="product-hover"> <a href="算术编码.html" class="add-to-cart-link"><i
+                        class="fa fa-shopping-cart"></i>进入学习</a> <a href="算术编码.html"
+                      class="view-details-link"><i class="fa fa-link"></i> 点击查看</a> </div>
+                </div>
+                <h2><a href="算术编码.html">&#12288;&#12288;&#12288;算术编码</a></h2>
+              </div>
+
+              <div class="single-product">
+		      <div class="product-f-image"> <img src="{{url_for('static',filename='images/哈弗曼编码.jpg')}}" alt="">
+                  <div class="product-hover"> <a href="哈弗曼编码.html" class="add-to-cart-link"><i
+                        class="fa fa-shopping-cart"></i>进入学习</a> <a href="哈弗曼编码.html"
+                      class="view-details-link"><i class="fa fa-link"></i> 点击查看</a> </div>
+                </div>
+                <h2><a href="哈弗曼编码.html">&#12288;&#12288;&#12288;哈弗曼编码</a></h2>
+              </div>
+
+              <div class="single-product">
+                <div class="product-f-image"> <img src="{{url_for('static',filename='images/行程编码.jpg')}}" alt="">
+                  <div class="product-hover"> <a href="行程编码.html" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i>
+                      进入学习</a> <a href="行程编码.html" class="view-details-link"><i class="fa fa-link"></i>
+                      点击查看</a> </div>
+                </div>
+                <h2><a href="行程编码.html">&#12288;&#12288;&#12288;行程编码</a></h2>
+              </div>
+
+              <div class="single-product">
+                <div class="product-f-image"> <img src="{{url_for('static',filename='images/词典编码.jpg')}}" alt="">
+                  <div class="product-hover"> <a href="词典编码.html" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i>
+                      进入学习</a> <a href="词典编码.html" class="view-details-link"><i class="fa fa-link"></i>
+                      点击查看</a> </div>
+                </div>
+                <h2><a href="词典编码.html">&#12288;&#12288;&#12288;词典编码</a></h2>
+              </div>
+
+              <div class="single-product">
+                <div class="product-f-image"> <img src="{{url_for('static',filename='images/无损预测编码.jpg')}}" alt="">
+                  <div class="product-hover"> <a href="无损预测.html" class="add-to-cart-link"><i
+                        class="fa fa-shopping-cart"></i>进入学习</a> <a href="无损预测.html"
+                      class="view-details-link"><i class="fa fa-link"></i> 点击查看</a> </div>
+                </div>
+                <h2><a href="无损预测.html">&#12288;&#12288;&#12288;无损预测</a></h2>
+              </div>
+
+             
+             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="maincontent-area">
+    <div class="zigzag-bottom"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="latest-product">
+            <h2 class="section-title">考试热点</h2>
+            <div class="container">
+              <div class="row">
+                <div class="col-md-2 col-sm-6 hot-list">
+
+                  <img src="{{url_for('static',filename='images/GIF.jpg')}}" alt="">
+                </div>
+                <div class="col-md-2 col-sm-6 hot-list">
+                  <img src="{{url_for('static',filename='images/算术编码.jpg')}}" alt="">
+                </div>
+                <div class="col-md-2 col-sm-6 hot-list">
+                  <img src="{{url_for('static',filename='images/哈弗曼编码.jpg')}}" alt="">
+                </div>
+                <div class="col-md-2 col-sm-6 hot-list">
+                  <img src="{{url_for('static',filename='images/变换编码.jpg')}}" alt="">
+                </div>
+                <div class="col-md-2 col-sm-6 hot-list">
+                  <img src="{{url_for('static',filename='images/有损预测编码.jpg')}}" alt="">
+                </div>
+                <div class="col-md-2 col-sm-6 hot-list">
+                  <img src="{{url_for('static',filename='images/量化.jpg')}}" alt="">
+               </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+{% endblock %}

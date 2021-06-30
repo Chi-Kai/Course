@@ -1,0 +1,94 @@
+{% extends 'subbase.html' %}
+
+{% block style%}
+
+<link rel="stylesheet" href="{{url_for('static',filename='css/a.css')}}">
+
+{% endblock %}
+
+
+{% block bt %}
+
+<div class="navbar-collapse collapse">
+  <ul class="nav navbar-nav">
+    <li ><a href="{{url_for('view.index')}}">课程简介</a></li>
+    <li ><a href="{{url_for('view.image')}}">图像处理</a></li>
+    <li ><a href="{{url_for('view.sound')}}">音频处理</a></li>
+    <li ><a href="{{url_for('view.video')}}">视频处理</a></li>
+ 
+    <li ><a href="{{url_for('view.messages')}}">课程通知</a></li>
+    <li class="active"><a href="{{url_for('view.work')}}">作业展示</a></li>
+    <li><a href="{{url_for('view.join')}}">我要参与</a></li>
+    <li><a href="{{url_for('view.more')}}">查看更多</a></li>
+  </ul>
+</div>
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="link">
+	<ul class="ul">
+		<li class="li">
+			<div class="li-a">
+				<div class="top">
+					<i class="fa fa-bookmark"></i>
+					<a href="https://colab.research.google.com/drive/12kYSAs_8zjFJVDDBOia3DubO7CpdO2pA?hl=zh-cn">
+						哈弗曼编码
+					</a>
+					
+				</div>
+				<div class="center">
+					<div class="one"><i class="fa fa-star-o"></i></div>
+					<div style="margin-right : 9px;"><span>收藏</span></div>
+					
+					
+					<div class="one"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></div>
+					<div><span>点赞</span></div>
+				</div>
+			</div>
+		</li>
+
+		<li class="li">
+			<div class="li-a">
+				<div class="top">
+					<i class="fa fa-bookmark"></i>
+					<a href="https://colab.research.google.com/drive/1jayxHhYGdyB0LJAyFM9q1fH9OO-MI51O?hl=zh-cn#scrollTo=aHubekCedNyO">
+					 算术编码
+					</a>
+					
+				</div>
+				<div class="center">
+					<div class="one"><i class="fa fa-star-o"></i></div>
+					<div style="margin-right : 9px;"><span>收藏</span></div>
+					
+					
+					<div class="one"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></div>
+					<div><span>点赞</span></div>
+				</div>
+			</div>
+		</li>
+
+		<li class="li">
+			<div class="li-a">
+				<div class="top">
+					<i class="fa fa-bookmark"></i>
+					<a href="ps.html">
+					 在线图像处理
+					</a>
+					
+				</div>
+				<div class="center">
+					<div class="one"><i class="fa fa-star-o"></i></div>
+					<div style="margin-right : 9px;"><span>收藏</span></div>
+					
+					
+					<div class="one"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></div>
+					<div><span>点赞</span></div>
+				</div>
+			</div>
+		</li>
+	</ul>
+</div>
+{% endblock%}

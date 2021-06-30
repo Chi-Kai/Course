@@ -1,0 +1,90 @@
+{% extends 'subbase.html' %}
+
+{% block bt%}
+{{ super() }}
+{% endblock%}
+
+{% block content %}
+
+<div class="content">
+  <div class="a">
+ 
+   <div class="left">
+     <div class="img">
+      <img src="{{url_for('static',filename='images/图云.png')}}" alt="" class="quality_small_bottle">
+     
+     </div>
+  </div>
+
+  <div class= "right">
+    <div class="title" style=" font-family:'cyjianxk28858b0a752368e';">
+      MIDI
+    </div>
+    <div id="accordion">
+      <div class="card">
+        <div class="card-header" id="headingOne">
+          <h5 class="mb-0" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+                  aria-controls="collapseOne" style="font-family:'cyjianxk28856179772368e';">
+              具体步骤
+          </h5>
+       </div>
+
+       <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+         <div class="card-body">
+            <p class="paragraph" style = "font-family:LiDeBiao-Xing3">
+              
+            </p>
+         </div>
+       </div>
+      </div>
+     <div class="card">
+       <div class="card-header" id="headingTwo">  
+         <h5 class="mb-0" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
+                  aria-controls="collapseTwo" style="font-family:'cyjianxk28856d138f2368e';">   
+           FLASH动画
+         </h5>
+       </div>
+       <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+         <div class="card-body">
+          <video width="300" height="200" controls="controls">
+
+            <source src="video\算术编码.mp4" type="video/mp4">
+         </video>
+         </div>
+       </div>
+     </div>
+   <div class="card">
+     <div class="card-header" id="headingThree">
+      <h5 class="mb-0" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true"
+                  aria-controls="collapseThree" style="font-family:'cyjianxk2886a9090f2368e';">  
+        知识拓展
+      </h5>
+    </div>
+      <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+       <div class="card-body">
+
+        <a href="https://127.0.0.1:8182">编码练习</a>
+        <br> </br>
+
+        <a href="https://colab.research.google.com/notebooks/welcome.ipynb?hl=zh-cn#scrollTo=GJBs_flRovLc">代码查看</a>
+        
+        <br> </br>
+
+        <a href="https://scholar.google.com/scholar?q=%E7%AE%97%E6%9C%AF%E7%BC%96%E7%A0%81%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87&hl=zh-CN&as_sdt=0&as_vis=1&oi=scholart">相关论文</a> 
+       </div>
+      </div>
+   </div>
+   
+  
+
+   </div>
+   <button class="btn">
+    <a href="{{url_for('view.ckeditor')}}">commit</a>
+  </button>
+  
+</div>
+  
+</div>
+
+
+{% endblock  %}

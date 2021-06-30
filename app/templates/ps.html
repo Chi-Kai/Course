@@ -1,0 +1,72 @@
+
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>在线图像处理</title>
+	<link rel="stylesheet" href="css/b.css">
+	
+
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="File Upload widget Widget Responsive, Login Form Web Template, Flat Pricing Tables, Flat Drop-Downs, Sign-Up Web Templates, Flat Web Templates, Login Sign-up Responsive Web Template, Smartphone Compatible Web Template, Free Web Designs for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design" />
+	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<script>
+
+		function to(){
+			document.aaa.action="to";
+			document.aaa.submit();
+		};
+		function upload(){
+			document.aaa.action="upload";
+			document.aaa.submit();
+		};
+
+
+
+
+	</script>
+</head>
+
+<body>
+<h1>在线图像处理</h1>
+<div class="agile-its">
+	<h2>文件上传</h2>
+	<div class="w3layouts">
+		<div class="photos-upload-view">
+			<form id="upload"  name="aaa"  method="POST" enctype="multipart/form-data">
+				<input type="hidden" id="MAX_FILE_SIZE" name="MAX_FILE_SIZE" value="300000" />
+					<div class="agileinfo">
+					<input type="submit" class="choose" value="选择文件">
+					<h3>处理方式</h3>
+						<input type="file" id="fileselect" name="fileselect[]" multiple="multiple" />
+						<input onclick="upload()" type="submit" id="filedrag" value="压缩"/>
+						<input onclick="to()" type="submit" value="提取文字">
+
+					</div>
+			</form>
+
+				<input id="ddddd"  type="text" value="${ yjl}" size="30">
+
+
+
+
+
+
+		</div>
+		<div class="clearfix"></div>
+		<script src="js/filedrag.js"></script>
+
+
+		</div>
+</div>
+<div class="footer">
+	<p> © 多媒体技术 | jahup</p>
+</div>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+
+</div>
+</body>
+</html>
