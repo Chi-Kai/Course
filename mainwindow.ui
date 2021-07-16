@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1085</width>
+    <height>783</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QSplitter" name="splitter">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <widget class="QWidget" name="layoutWidget">
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QLineEdit" name="lineEdit">
+          <property name="font">
+           <font>
+            <family>JetBrainsMono Nerd Font Mono</family>
+            <pointsize>12</pointsize>
+            <italic>true</italic>
+           </font>
+          </property>
+          <property name="placeholderText">
+           <string>filter</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="startButton">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="font">
+           <font>
+            <family>JetBrainsMonoExtraBold Nerd Font</family>
+            <pointsize>16</pointsize>
+            <weight>75</weight>
+            <italic>true</italic>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>start</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="stopButton">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="font">
+           <font>
+            <family>JetBrainsMonoExtraBold Nerd Font</family>
+            <pointsize>16</pointsize>
+            <weight>75</weight>
+            <italic>true</italic>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>stop</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QComboBox" name="devcomboBox">
+          <property name="font">
+           <font>
+            <family>JetBrainsMonoExtraBold Nerd Font Mono</family>
+            <pointsize>16</pointsize>
+            <weight>75</weight>
+            <italic>false</italic>
+            <bold>true</bold>
+           </font>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QTableWidget" name="tableWidget">
+       <property name="font">
+        <font>
+         <family>JetBrainsMonoExtraBold Nerd Font</family>
+         <pointsize>11</pointsize>
+         <weight>10</weight>
+         <italic>true</italic>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-color: rgb(160, 203, 255);
+font: 81 italic 11pt &quot;JetBrainsMonoExtraBold Nerd Font&quot;;</string>
+       </property>
+       <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+        <bool>false</bool>
+       </attribute>
+       <column>
+        <property name="text">
+         <string>ID</string>
+        </property>
+        <property name="font">
+         <font>
+          <family>JetBrainsMonoExtraBold Nerd Font</family>
+          <pointsize>14</pointsize>
+          <weight>75</weight>
+          <italic>true</italic>
+          <bold>true</bold>
+         </font>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Time</string>
+        </property>
+        <property name="font">
+         <font>
+          <family>JetBrainsMonoExtraBold Nerd Font</family>
+          <pointsize>14</pointsize>
+          <weight>75</weight>
+          <italic>true</italic>
+          <bold>true</bold>
+         </font>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Src IP</string>
+        </property>
+        <property name="font">
+         <font>
+          <family>JetBrainsMonoExtraBold Nerd Font Mono</family>
+          <pointsize>14</pointsize>
+          <weight>75</weight>
+          <italic>true</italic>
+          <bold>true</bold>
+         </font>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Src Port</string>
+        </property>
+        <property name="font">
+         <font>
+          <family>JetBrainsMonoExtraBold Nerd Font Mono</family>
+          <pointsize>14</pointsize>
+          <weight>75</weight>
+          <italic>true</italic>
+          <bold>true</bold>
+         </font>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Dst IP</string>
+        </property>
+        <property name="font">
+         <font>
+          <family>JetBrainsMonoExtraBold Nerd Font</family>
+          <pointsize>14</pointsize>
+          <weight>75</weight>
+          <italic>true</italic>
+          <bold>true</bold>
+         </font>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Dst Port</string>
+        </property>
+        <property name="font">
+         <font>
+          <family>JetBrainsMonoExtraBold Nerd Font Mono</family>
+          <pointsize>14</pointsize>
+          <weight>75</weight>
+          <italic>true</italic>
+          <bold>true</bold>
+         </font>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Length</string>
+        </property>
+        <property name="font">
+         <font>
+          <family>JetBrainsMonoExtraBold Nerd Font Mono</family>
+          <pointsize>14</pointsize>
+          <weight>75</weight>
+          <italic>true</italic>
+          <bold>true</bold>
+         </font>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Protocol</string>
+        </property>
+        <property name="font">
+         <font>
+          <family>JetBrainsMonoExtraBold Nerd Font Mono</family>
+          <pointsize>14</pointsize>
+          <weight>75</weight>
+          <italic>true</italic>
+          <bold>true</bold>
+         </font>
+        </property>
+       </column>
+      </widget>
+      <widget class="QTreeWidget" name="treeWidget">
+       <property name="font">
+        <font>
+         <family>JetBrainsMonoMedium Nerd Font Mono</family>
+         <pointsize>14</pointsize>
+         <weight>7</weight>
+         <italic>true</italic>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 57 italic 14pt &quot;JetBrainsMonoMedium Nerd Font Mono&quot;;</string>
+       </property>
+       <column>
+        <property name="text">
+         <string notr="true">1</string>
+        </property>
+       </column>
+      </widget>
+      <widget class="QTextBrowser" name="textEdit">
+       <property name="minimumSize">
+        <size>
+         <width>300</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>JetBrainsMonoMedium Nerd Font Mono</family>
+         <pointsize>14</pointsize>
+         <weight>7</weight>
+         <italic>true</italic>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 57 italic 14pt &quot;JetBrainsMonoMedium Nerd Font Mono&quot;;</string>
+       </property>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1085</width>
+     <height>36</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>JetBrainsMonoMedium Nerd Font Mono</family>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
+   <widget class="QMenu" name="menudevice">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionchange"/>
+    <addaction name="actionOpen"/>
+    <addaction name="actionClear"/>
+    <addaction name="actionquit"/>
+   </widget>
+   <widget class="QMenu" name="menuattack">
+    <property name="title">
+     <string>Attack</string>
+    </property>
+    <addaction name="actionarp"/>
+   </widget>
+   <addaction name="menudevice"/>
+   <addaction name="menuattack"/>
+  </widget>
+  <action name="actionstart">
+   <property name="text">
+    <string>start</string>
+   </property>
+  </action>
+  <action name="actionstop">
+   <property name="text">
+    <string>stop</string>
+   </property>
+  </action>
+  <action name="actionarp">
+   <property name="text">
+    <string>arp</string>
+   </property>
+   <property name="font">
+    <font>
+     <family>JetBrainsMonoExtraBold Nerd Font</family>
+     <pointsize>12</pointsize>
+     <weight>75</weight>
+     <italic>true</italic>
+     <bold>true</bold>
+    </font>
+   </property>
+  </action>
+  <action name="actionchange">
+   <property name="text">
+    <string>Save</string>
+   </property>
+   <property name="font">
+    <font>
+     <family>JetBrainsMonoExtraBold Nerd Font Mono</family>
+     <pointsize>12</pointsize>
+     <weight>75</weight>
+     <italic>true</italic>
+     <bold>true</bold>
+    </font>
+   </property>
+  </action>
+  <action name="actionquit">
+   <property name="text">
+    <string>quit</string>
+   </property>
+   <property name="font">
+    <font>
+     <family>JetBrainsMonoExtraBold Nerd Font</family>
+     <pointsize>12</pointsize>
+     <weight>75</weight>
+     <italic>true</italic>
+     <bold>true</bold>
+    </font>
+   </property>
+  </action>
+  <action name="actionOpen">
+   <property name="text">
+    <string>Open</string>
+   </property>
+   <property name="font">
+    <font>
+     <family>JetBrainsMonoExtraBold Nerd Font Mono</family>
+     <pointsize>12</pointsize>
+     <weight>75</weight>
+     <italic>true</italic>
+     <bold>true</bold>
+    </font>
+   </property>
+  </action>
+  <action name="actionClear">
+   <property name="text">
+    <string>Clear</string>
+   </property>
+   <property name="font">
+    <font>
+     <family>JetBrainsMonoExtraBold Nerd Font Mono</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>actionquit</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>542</x>
+     <y>391</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
