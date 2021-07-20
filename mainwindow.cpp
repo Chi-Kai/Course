@@ -91,9 +91,7 @@ MainWindow::MainWindow(QWidget* par)
     capthread = new capturethread;
     capthread->mainwindow = this;
 
-    arp = new ARP;
-    arp->mainwindow = this;
-
+   // connect(capthread,&QThread::finished ,this,&QObject::deleteLater);
 
 
 }
@@ -101,6 +99,7 @@ MainWindow::MainWindow(QWidget* par)
 MainWindow::~MainWindow()
 {
     delete capthread;
+
     for (unsigned i = 0;i <packet_list.size();++i)
     {
         delete [] packet_list[i]; //!
@@ -133,7 +132,9 @@ void MainWindow::on_startButton_clicked()
     capthread->isrun = 1;
     capthread->start();
 
+
     startButton->setEnabled(false);
+    startButton->setText("Runing");
     stopButton->setEnabled(true);
 
 
@@ -143,11 +144,12 @@ void MainWindow::on_stopButton_clicked()
 {
     capthread->isrun = 0;
     capthread->quit();
-    //capthread->wait();
-
+    capthread->wait();
+    refresh_table();
 
     startButton->setEnabled(true);
     stopButton->setEnabled(false);
+    startButton->setText("Start");
     lineEdit->setEnabled(true);
     devcomboBox->setEnabled(true);
 
@@ -274,10 +276,14 @@ void MainWindow::on_actioneclear_triggered()
 
 }
 
+
 void MainWindow::on_actionarp_triggered()
 {
-    arp->show();
+    ARP* arp = new ARP(pdev->name);
+
+    arp->showNormal();
 }
+
 
 void MainWindow::refresh_table()
 {

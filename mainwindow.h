@@ -9,7 +9,7 @@
 #include"arp.h"
 
 class capturethread;
-class ARP;
+
 
 class MainWindow : public QMainWindow,public Ui::MainWindow
 
@@ -49,7 +49,7 @@ private:
 
     int byte = 65535;
     int time = 0;
-    int allfitter = 1;
+    int allfitter = 0;
 
 public:
 
@@ -58,7 +58,8 @@ public:
     pcap_if_t * pdev = NULL;
     pcap_t* opendev = NULL;
     capturethread* capthread;
-    ARP* arp;
+
+
 
 };
 

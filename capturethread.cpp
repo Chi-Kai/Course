@@ -7,10 +7,10 @@ void capturethread::run()
     struct pcap_pkthdr*   tmp_head;
     const u_char*         tmp_packet; // !
     QString err;
-    while(1)
+    while(isrun)
     {
 
-        QMutexLocker locker(&m_lock); if(!isrun) return;
+        QMutexLocker locker(&m_lock);
         int flag = pcap_next_ex(mainwindow->opendev,&tmp_head,&tmp_packet);
         if (flag == 1){
 
@@ -30,8 +30,15 @@ void capturethread::run()
             break;
         }
 
+        usleep(1);
        mainwindow->refresh_table();
     }
 
 
+}
+
+capturethread::~capturethread()
+{
+    quit();
+    wait();
 }

@@ -16,7 +16,6 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QTextBrowser>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
@@ -43,8 +42,8 @@ public:
     QTextBrowser *textBrowser;
     QHBoxLayout *horizontalLayout_5;
     QLineEdit *numlineEdit;
-    QSpacerItem *horizontalSpacer;
-    QPushButton *pushButton;
+    QPushButton *startButton;
+    QPushButton *quitButton;
 
     void setupUi(QWidget *arpForm)
     {
@@ -147,15 +146,19 @@ public:
 
         horizontalLayout_5->addWidget(numlineEdit);
 
-        horizontalSpacer = new QSpacerItem(100, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        startButton = new QPushButton(arpForm);
+        startButton->setObjectName(QString::fromUtf8("startButton"));
+        startButton->setEnabled(true);
+        startButton->setStyleSheet(QString::fromUtf8("font: 81 italic 14pt \"JetBrainsMonoExtraBold Nerd Font Mono\";"));
 
-        horizontalLayout_5->addItem(horizontalSpacer);
+        horizontalLayout_5->addWidget(startButton);
 
-        pushButton = new QPushButton(arpForm);
-        pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setStyleSheet(QString::fromUtf8("font: 81 italic 14pt \"JetBrainsMonoExtraBold Nerd Font Mono\";"));
+        quitButton = new QPushButton(arpForm);
+        quitButton->setObjectName(QString::fromUtf8("quitButton"));
+        quitButton->setEnabled(true);
+        quitButton->setStyleSheet(QString::fromUtf8("font: 81 italic 14pt \"JetBrainsMonoExtraBold Nerd Font Mono\";"));
 
-        horizontalLayout_5->addWidget(pushButton);
+        horizontalLayout_5->addWidget(quitButton);
 
 
         verticalLayout->addLayout(horizontalLayout_5);
@@ -165,6 +168,7 @@ public:
 
 
         retranslateUi(arpForm);
+        QObject::connect(quitButton, SIGNAL(clicked()), arpForm, SLOT(close()));
 
         QMetaObject::connectSlotsByName(arpForm);
     } // setupUi
@@ -178,8 +182,9 @@ public:
         dstiplineEdit->setText(QString());
         label_4->setText(QCoreApplication::translate("arpForm", "Dst MAC", nullptr));
         dstmaclineEdit->setText(QString());
-        numlineEdit->setText(QCoreApplication::translate("arpForm", "Times", nullptr));
-        pushButton->setText(QCoreApplication::translate("arpForm", "Start", nullptr));
+        numlineEdit->setText(QCoreApplication::translate("arpForm", "300", nullptr));
+        startButton->setText(QCoreApplication::translate("arpForm", "Start", nullptr));
+        quitButton->setText(QCoreApplication::translate("arpForm", "quit", nullptr));
     } // retranslateUi
 
 };

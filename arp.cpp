@@ -3,18 +3,23 @@
 #include<QMessageBox>
 #include<QString>
 #include"head.h"
+#include<QRegExp>
 
-ARP:: ARP (QWidget* par) :  QWidget(par)
+ARP:: ARP (const char* device,QWidget* par ) : QWidget(par)
 {
-
-    connect(pushButton,SIGNAL(clicked()),SLOT(on_start_clicked()));
+    setupUi(this);
+    setFixedSize(this->width(),this->height());
+    dev = device;
+    connect( startButton,SIGNAL(clicked()), SLOT(on_start_clicked()) );
 }
+
+
 
 void ARP::attack()
 {
     //iplineEdit->text().toLatin1();
 
-    const char* dev = mainwindow->pdev->name;
+    //const char* dev = mainwindow->pdev->name;
     u_int32_t srcip,dstip;
     srcip = libnet_name2addr4(net_t,src_ip,LIBNET_RESOLVE);
     dstip = libnet_name2addr4(net_t,dst_ip,LIBNET_RESOLVE);
@@ -78,8 +83,25 @@ void ARP::attack()
 
 }
 
+const static QRegExp reg_mac("([0-9A-Fa-f]{2}:[0-9A-Fa-f]{2}:[0-9A-Fa-f]{2}:[0-9A-Fa-f]{2}:[0-9A-Fa-f]{2}:[0-9A-Fa-f]{2})");
+const static QRegExp reg_ip("[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}");
 void ARP::on_start_clicked()
 {
+    startButton->setEnabled(false);
+    quitButton->setEnabled(true);
+    if (!reg_mac.exactMatch(dstmaclineEdit->text()) || !reg_mac.exactMatch(srcmaclineEdit->text()))
+    {
+        QMessageBox::critical(this,"Error","Mac Adress is invalued!");
+        return;
+    }
+
+    if (! reg_ip.exactMatch(dstiplineEdit->text()) || !reg_ip.exactMatch(srciplineEdit->text()))
+    {
+        QMessageBox::critical(this,"Error","IP Adress is invalued!");
+        return;
+    }
+
+
     src_ip = srciplineEdit->text().toLatin1().data();
     dst_ip = dstiplineEdit->text().toLatin1().data();
     src_mac = srcmaclineEdit->text().toLatin1().data();

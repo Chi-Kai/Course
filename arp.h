@@ -6,13 +6,15 @@
 #include "ui_arp.h"
 #include "mainwindow.h"
 
-class MainWindow;
+
 class ARP: public QWidget,public Ui::arpForm
 {
     Q_OBJECT
 public:
 
-    ARP(QWidget* par = 0);
+
+    ARP(const char* device,QWidget* par = 0) ;
+
     void attack();
 
 private slots:
@@ -20,18 +22,17 @@ private slots:
     void on_start_clicked();
 
 private:
-    char* src_ip = NULL;
-    char* src_mac = NULL;
-    char* dst_ip = NULL;
-    char* dst_mac = NULL;
+    char* src_ip ;
+    char* src_mac;
+    char* dst_ip ;
+    char* dst_mac;
 
     char errBuf[LIBNET_ERRBUF_SIZE];
     libnet_t* net_t = NULL;
+    const char* dev;
 
     int sendtimes;
-public:
 
-    MainWindow*  mainwindow;
 
 };
 

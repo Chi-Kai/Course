@@ -14,6 +14,7 @@ Q_OBJECT
 
 public:
     capturethread():QThread(){}
+    ~capturethread();
     bool isrun = 1;
     MainWindow* mainwindow;
     virtual void run();

@@ -107,6 +107,7 @@ typedef struct arp
 #pragma pack()
 #ifdef __cplusplus
 }
+
 #endif
 
 #endif // HEAD_H
