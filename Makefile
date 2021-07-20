@@ -17,7 +17,7 @@ CXX           = g++
 DEFINES       = -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -O2 -Wall -Wextra -D_REENTRANT -fPIC $(DEFINES)
 CXXFLAGS      = -pipe -O2 -Wall -Wextra -D_REENTRANT -fPIC $(DEFINES)
-INCPATH       = -I. -I. -I/usr/include/pcap -I/usr/include/qt -I/usr/include/qt/QtWidgets -I/usr/include/qt/QtGui -I/usr/include/qt/QtCore -I. -I. -I/usr/lib/qt/mkspecs/linux-g++
+INCPATH       = -I. -I. -I/usr/include/pcap -I/usr/include/net -I/usr/include/qt -I/usr/include/qt/QtWidgets -I/usr/include/qt/QtGui -I/usr/include/qt/QtCore -I. -I. -I/usr/lib/qt/mkspecs/linux-g++
 QMAKE         = /usr/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -40,7 +40,7 @@ DISTNAME      = WoShark1.0.0
 DISTDIR = /home/chikai/qt/WoShark/.tmp/WoShark1.0.0
 LINK          = g++
 LFLAGS        = -Wl,-O1
-LIBS          = $(SUBLIBS) -L/home/chikai/qt/WoShark/../../../../lib/ -lpcap /usr/lib/libQt5Widgets.so /usr/lib/libQt5Gui.so /usr/lib/libQt5Core.so -lGL -lpthread   
+LIBS          = $(SUBLIBS) -L/home/chikai/qt/WoShark/../../../../lib/ -lpcap -lnet /usr/lib/libQt5Widgets.so /usr/lib/libQt5Gui.so /usr/lib/libQt5Core.so -lGL -lpthread   
 AR            = ar cqs
 RANLIB        = 
 SED           = sed
@@ -52,13 +52,17 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = capturethread.cpp \
+SOURCES       = arp.cpp \
+		capturethread.cpp \
 		main.cpp \
-		mainwindow.cpp moc_capturethread.cpp \
+		mainwindow.cpp moc_arp.cpp \
+		moc_capturethread.cpp \
 		moc_mainwindow.cpp
-OBJECTS       = capturethread.o \
+OBJECTS       = arp.o \
+		capturethread.o \
 		main.o \
 		mainwindow.o \
+		moc_arp.o \
 		moc_capturethread.o \
 		moc_mainwindow.o
 DIST          = /usr/lib/qt/mkspecs/features/spec_pre.prf \
@@ -285,9 +289,12 @@ DIST          = /usr/lib/qt/mkspecs/features/spec_pre.prf \
 		/usr/lib/qt/mkspecs/features/yacc.prf \
 		/usr/lib/qt/mkspecs/features/lex.prf \
 		WoShark.pro ui_mainwindow.h \
+		arp.h \
 		capturethread.h \
 		head.h \
-		mainwindow.h capturethread.cpp \
+		mainwindow.h \
+		ui_arp.h arp.cpp \
+		capturethread.cpp \
 		main.cpp \
 		mainwindow.cpp
 QMAKE_TARGET  = WoShark
@@ -298,7 +305,7 @@ TARGET        = WoShark
 first: all
 ####### Build rules
 
-WoShark: ui_mainwindow.h $(OBJECTS)  
+WoShark: ui_mainwindow.h ui_arp.h $(OBJECTS)  
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
 Makefile: WoShark.pro /usr/lib/qt/mkspecs/linux-g++/qmake.conf /usr/lib/qt/mkspecs/features/spec_pre.prf \
@@ -765,9 +772,9 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/qt/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ui_mainwindow.h capturethread.h head.h mainwindow.h $(DISTDIR)/
-	$(COPY_FILE) --parents capturethread.cpp main.cpp mainwindow.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents mainwindow.ui $(DISTDIR)/
+	$(COPY_FILE) --parents ui_mainwindow.h arp.h capturethread.h head.h mainwindow.h ui_arp.h $(DISTDIR)/
+	$(COPY_FILE) --parents arp.cpp capturethread.cpp main.cpp mainwindow.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents mainwindow.ui arp.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -799,9 +806,19 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /usr/lib/qt/mkspecs/features/data/dummy.cpp
 	g++ -pipe -O2 -Wall -Wextra -dM -E -o moc_predefs.h /usr/lib/qt/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_capturethread.cpp moc_mainwindow.cpp
+compiler_moc_header_make_all: moc_arp.cpp moc_capturethread.cpp moc_mainwindow.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_capturethread.cpp moc_mainwindow.cpp
+	-$(DEL_FILE) moc_arp.cpp moc_capturethread.cpp moc_mainwindow.cpp
+moc_arp.cpp: arp.h \
+		head.h \
+		ui_arp.h \
+		mainwindow.h \
+		ui_mainwindow.h \
+		capturethread.h \
+		moc_predefs.h \
+		/usr/bin/moc
+	/usr/bin/moc $(DEFINES) --include /home/chikai/qt/WoShark/moc_predefs.h -I/usr/lib/qt/mkspecs/linux-g++ -I/home/chikai/qt/WoShark -I/home/chikai/qt/WoShark -I/usr/include/pcap -I/usr/include/net -I/usr/include/qt -I/usr/include/qt/QtWidgets -I/usr/include/qt/QtGui -I/usr/include/qt/QtCore -I/usr/include/c++/11.1.0 -I/usr/include/c++/11.1.0/x86_64-pc-linux-gnu -I/usr/include/c++/11.1.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include-fixed -I/usr/include arp.h -o moc_arp.cpp
+
 moc_capturethread.cpp: capturethread.h \
 		head.h \
 		mainwindow.h \
@@ -809,7 +826,7 @@ moc_capturethread.cpp: capturethread.h \
 		capturethread.h \
 		moc_predefs.h \
 		/usr/bin/moc
-	/usr/bin/moc $(DEFINES) --include /home/chikai/qt/WoShark/moc_predefs.h -I/usr/lib/qt/mkspecs/linux-g++ -I/home/chikai/qt/WoShark -I/home/chikai/qt/WoShark -I/usr/include/pcap -I/usr/include/qt -I/usr/include/qt/QtWidgets -I/usr/include/qt/QtGui -I/usr/include/qt/QtCore -I/usr/include/c++/11.1.0 -I/usr/include/c++/11.1.0/x86_64-pc-linux-gnu -I/usr/include/c++/11.1.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include-fixed -I/usr/include capturethread.h -o moc_capturethread.cpp
+	/usr/bin/moc $(DEFINES) --include /home/chikai/qt/WoShark/moc_predefs.h -I/usr/lib/qt/mkspecs/linux-g++ -I/home/chikai/qt/WoShark -I/home/chikai/qt/WoShark -I/usr/include/pcap -I/usr/include/net -I/usr/include/qt -I/usr/include/qt/QtWidgets -I/usr/include/qt/QtGui -I/usr/include/qt/QtCore -I/usr/include/c++/11.1.0 -I/usr/include/c++/11.1.0/x86_64-pc-linux-gnu -I/usr/include/c++/11.1.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include-fixed -I/usr/include capturethread.h -o moc_capturethread.cpp
 
 moc_mainwindow.cpp: mainwindow.h \
 		ui_mainwindow.h \
@@ -818,18 +835,22 @@ moc_mainwindow.cpp: mainwindow.h \
 		mainwindow.h \
 		moc_predefs.h \
 		/usr/bin/moc
-	/usr/bin/moc $(DEFINES) --include /home/chikai/qt/WoShark/moc_predefs.h -I/usr/lib/qt/mkspecs/linux-g++ -I/home/chikai/qt/WoShark -I/home/chikai/qt/WoShark -I/usr/include/pcap -I/usr/include/qt -I/usr/include/qt/QtWidgets -I/usr/include/qt/QtGui -I/usr/include/qt/QtCore -I/usr/include/c++/11.1.0 -I/usr/include/c++/11.1.0/x86_64-pc-linux-gnu -I/usr/include/c++/11.1.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include-fixed -I/usr/include mainwindow.h -o moc_mainwindow.cpp
+	/usr/bin/moc $(DEFINES) --include /home/chikai/qt/WoShark/moc_predefs.h -I/usr/lib/qt/mkspecs/linux-g++ -I/home/chikai/qt/WoShark -I/home/chikai/qt/WoShark -I/usr/include/pcap -I/usr/include/net -I/usr/include/qt -I/usr/include/qt/QtWidgets -I/usr/include/qt/QtGui -I/usr/include/qt/QtCore -I/usr/include/c++/11.1.0 -I/usr/include/c++/11.1.0/x86_64-pc-linux-gnu -I/usr/include/c++/11.1.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include-fixed -I/usr/include mainwindow.h -o moc_mainwindow.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_mainwindow.h
+compiler_uic_make_all: ui_mainwindow.h ui_arp.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_mainwindow.h
+	-$(DEL_FILE) ui_mainwindow.h ui_arp.h
 ui_mainwindow.h: mainwindow.ui \
 		/usr/bin/uic
 	/usr/bin/uic mainwindow.ui -o ui_mainwindow.h
+
+ui_arp.h: arp.ui \
+		/usr/bin/uic
+	/usr/bin/uic arp.ui -o ui_arp.h
 
 compiler_yacc_decl_make_all:
 compiler_yacc_decl_clean:
@@ -840,6 +861,14 @@ compiler_lex_clean:
 compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_uic_clean 
 
 ####### Compile
+
+arp.o: arp.cpp arp.h \
+		head.h \
+		ui_arp.h \
+		mainwindow.h \
+		ui_mainwindow.h \
+		capturethread.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o arp.o arp.cpp
 
 capturethread.o: capturethread.cpp capturethread.h \
 		head.h \
@@ -858,6 +887,9 @@ mainwindow.o: mainwindow.cpp mainwindow.h \
 		head.h \
 		capturethread.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o mainwindow.cpp
+
+moc_arp.o: moc_arp.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_arp.o moc_arp.cpp
 
 moc_capturethread.o: moc_capturethread.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_capturethread.o moc_capturethread.cpp

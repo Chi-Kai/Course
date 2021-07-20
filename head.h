@@ -11,6 +11,8 @@ extern "C"{
 #include <time.h>
 #include <arpa/inet.h>
 #include <string.h>
+#include <libnet.h>
+
 
 #pragma pack(1)
 // 以太网协议头部
@@ -100,16 +102,6 @@ typedef struct arp
     u_char arp_dip[4];
 }arp_hd;
 
-/*ICMP HEADER*/
-struct icmp
-{
-    u_char icmp_type;
-    u_char icmp_code;
-    u_short icmp_sum;
-    u_short icmp_id;
-    u_short icmp_seq;
-    u_int icmp_time;
-};
 
 
 #pragma pack()

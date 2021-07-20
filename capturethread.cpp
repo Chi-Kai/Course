@@ -29,8 +29,8 @@ void capturethread::run()
             err = "error";
             break;
         }
-       mainwindow->refresh_table();
 
+       mainwindow->refresh_table();
     }
 
 

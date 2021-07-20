@@ -20,19 +20,26 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 # Input
 HEADERS += ui_mainwindow.h \
+    arp.h \
     capturethread.h \
     head.h \
-    mainwindow.h
-FORMS += mainwindow.ui
+    mainwindow.h\
+    ui_arp.h
+
+FORMS += mainwindow.ui\
+         arp.ui
 
 SOURCES += \
+    arp.cpp \
     capturethread.cpp \
     main.cpp \
     mainwindow.cpp
 
 # deply
-unix:!macx: LIBS += -L$$PWD/../../../../lib/ -lpcap
+unix:!macx: LIBS += -L$$PWD/../../../../lib/ -lpcap -lnet
 
 INCLUDEPATH += $$PWD/../../../../usr/include/pcap
 DEPENDPATH += $$PWD/../../../../usr/include/pcap
+INCLUDEPATH += $$PWD/../../../../usr/include/net
+DEPENDPATH += $$PWD/../../../../usr/include/net
 

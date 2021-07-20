@@ -82,11 +82,19 @@ MainWindow::MainWindow(QWidget* par)
     connect(stopButton,SIGNAL(clicked()),this,SLOT(on_stopButton_clicked()));
     connect(tableWidget,SIGNAL(itemSelectionChanged()),this,SLOT(on_singleitem_click()));
     connect(actionClear,SIGNAL(triggered()),this,SLOT(on_actioneclear_triggered()));
+
+    connect(actionarp,SIGNAL(triggered()),this,SLOT( on_actionarp_triggered()));
     connect(devcomboBox,SIGNAL( currentIndexChanged(int)),SLOT(on_comboBox_changed()) );
+
     // !
 
     capthread = new capturethread;
     capthread->mainwindow = this;
+
+    arp = new ARP;
+    arp->mainwindow = this;
+
+
 
 }
 
@@ -143,6 +151,8 @@ void MainWindow::on_stopButton_clicked()
     lineEdit->setEnabled(true);
     devcomboBox->setEnabled(true);
 
+
+
  //   refresh_table();
 
 }
@@ -159,6 +169,14 @@ void MainWindow::on_stopButton_clicked()
    }
    tableWidget->clearContents();
    tableWidget->setRowCount(0);
+   treeWidget->clear();
+   textEdit->clear();
+   pkthdr_list.clear();
+   packet_list.clear();
+ //  pkthdr_list.swap( std::vector <pcap_pkthdr>());
+   std::vector <pcap_pkthdr>().swap(pkthdr_list);
+   std::vector <const u_char*>().swap(packet_list);
+
 
  }
 
@@ -256,6 +274,10 @@ void MainWindow::on_actioneclear_triggered()
 
 }
 
+void MainWindow::on_actionarp_triggered()
+{
+    arp->show();
+}
 
 void MainWindow::refresh_table()
 {
@@ -345,7 +367,7 @@ void MainWindow::refresh_table()
         }
 
         tableWidget->setItem(table_size,7,new QTableWidgetItem(ptl));
-
+        tableWidget->scrollToBottom();
     }
 
 }

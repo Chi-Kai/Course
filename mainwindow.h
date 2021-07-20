@@ -6,8 +6,10 @@
 #include <vector>
 #include"head.h"
 #include"capturethread.h"
+#include"arp.h"
 
 class capturethread;
+class ARP;
 
 class MainWindow : public QMainWindow,public Ui::MainWindow
 
@@ -40,6 +42,7 @@ private slots:
     void on_singleitem_click();
     void on_comboBox_changed();
     void on_actioneclear_triggered();
+    void on_actionarp_triggered();
 
 private:
 
@@ -55,7 +58,7 @@ public:
     pcap_if_t * pdev = NULL;
     pcap_t* opendev = NULL;
     capturethread* capthread;
-
+    ARP* arp;
 
 };
 
