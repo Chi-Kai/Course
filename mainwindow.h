@@ -43,6 +43,8 @@ private slots:
     void on_comboBox_changed();
     void on_actioneclear_triggered();
     void on_actionarp_triggered();
+    void on_actionesave_triggered();
+    void on_actionopen_triggered();
 
 private:
 

@@ -4,6 +4,7 @@
 #include<QStringList>
 #include"capturethread.h"
 #include<QDebug>
+#include<QFileDialog>
 
 u_int eth_len = sizeof(struct eth_hd);
 u_int ip_len = sizeof(struct ip_hd);
@@ -85,7 +86,8 @@ MainWindow::MainWindow(QWidget* par)
 
     connect(actionarp,SIGNAL(triggered()),this,SLOT( on_actionarp_triggered()));
     connect(devcomboBox,SIGNAL( currentIndexChanged(int)),SLOT(on_comboBox_changed()) );
-
+    connect(actionchange,SIGNAL(triggered()),this,SLOT(on_actionesave_triggered()));
+    connect(actionOpen,SIGNAL(triggered()),this,SLOT(on_actionopen_triggered()));
     // !
 
     capthread = new capturethread;
@@ -157,6 +159,44 @@ void MainWindow::on_stopButton_clicked()
 
  //   refresh_table();
 
+}
+
+void MainWindow::on_actionesave_triggered()
+{
+    QString filename=QFileDialog::getSaveFileName(this,"select a fold to save",".","pcap files(*.pcap)");
+    if(filename.isNull()||filename.isEmpty())return;
+
+    pcap_dumper_t* dump=pcap_dump_open(opendev,filename.toLatin1());
+    if(dump==nullptr){
+        QMessageBox::critical(this,"Error",QString("pcap_dump_open: ")+errBuf);
+        return;
+    }
+    for(unsigned i=0;i<packet_list.size();++i){
+        pcap_dump((u_char*)dump,&pkthdr_list[i],packet_list[i]);
+    }
+    pcap_dump_flush(dump);
+    pcap_dump_close(dump);
+}
+
+void MainWindow::on_actionopen_triggered()
+{
+    QString filename=QFileDialog::getOpenFileName(this,"select file to open",".","pcap files(*.pcap)");
+    if(filename.isEmpty())return;
+
+    pcap_t* pcap_file_handle=pcap_open_offline(filename.toLatin1(),errBuf);
+    if(pcap_file_handle==nullptr){
+        QMessageBox::critical(this,"Error",QString("Error: pcap_open_office() ")+errBuf);
+        return;
+    }
+    const u_char* packet;
+    pcap_pkthdr* pkthdr;
+    while(pcap_next_ex(pcap_file_handle,&pkthdr,&packet)==1){
+        u_char* tmp=new u_char [pkthdr->len];
+        memcpy(tmp,packet,pkthdr->len);
+        packet_list.push_back(tmp);
+        pkthdr_list.push_back(*pkthdr);
+    }
+    refresh_table();
 }
 
  void MainWindow::on_comboBox_changed()
