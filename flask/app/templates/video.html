@@ -1,0 +1,216 @@
+{% extends 'base.html' %}
+
+
+{% block bt %}
+
+<div class="navbar-collapse collapse">
+  <ul class="nav navbar-nav">
+    <li ><a href="{{url_for('view.index')}}">课程简介</a></li>
+    <li ><a href="{{url_for('view.image')}}">图像处理</a></li>
+    <li ><a href="{{url_for('view.sound')}}">音频处理</a></li>
+    <li class="active"><a href="{{url_for('view.video')}}">视频处理</a></li>
+ 
+    <li><a href="{{url_for('view.messages')}}">课程通知</a></li>
+    <li><a href="{{url_for('view.work')}}">作业展示</a></li>
+    <li><a href="{{url_for('view.join')}}">我要参与</a></li>
+    <li><a href="{{url_for('view.more')}}">查看更多</a></li>
+  </ul>
+</div>
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="product-big-title-area">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="product-bit-title text-center">
+
+          <h2>知识精讲</h2>
+       </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="single-product-area">
+  <div class="zigzag-bottom"></div>
+  <div class="container">
+    <div class="row">
+
+
+      <div class="col-md-3 col-sm-6">
+        <div class="single-shop-product">
+          <div class="product-upper">
+            <a href = "{{url_for('view.avs')}}"> 
+             <img src="{{url_for('static',filename='images/AVS.jpg')}}"  alt=""> 
+            </a>
+          </div>
+          <h2><a href="{{url_for('view.avs')}}" >&#12288;AVS</a></h2>
+          <div class="product-carousel-price"> <ins>难度系数★★★☆☆</ins> </div>
+          
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6">
+        <div class="single-shop-product">
+          <div class="product-upper">
+            <a href = 'H.261.html'> 
+             <img src="{{url_for('static',filename='images/H.261.jpg')}}"  alt=""> 
+            </a>
+          </div>
+          <h2><a href="H.261.html" >&#12288;H.261</a></h2>
+          <div class="product-carousel-price"> <ins>难度系数★★☆☆☆</ins> </div>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6">
+        <div class="single-shop-product">
+          <div class="product-upper">
+            <a href = 'H.264.html'> 
+             <img src="{{url_for('static',filename='images/H.264.jpg')}}"  alt=""> 
+            </a>
+          </div>
+          <h2><a href="H.264.html" >&#12288;H.264</a></h2>
+          <div class="product-carousel-price"> <ins>难度系数★★★★☆</ins> </div>
+       
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6">
+        <div class="single-shop-product">
+          <div class="product-upper">
+            <a href = 'MPEG-1.html'> 
+             <img src="{{url_for('static',filename='images/MPEG-1.jpg')}}"  alt=""> 
+            </a>
+          </div>
+          <h2><a href="MPEG-1.html" >&#12288;MPEG-1</a></h2>
+          <div class="product-carousel-price"> <ins>难度系数★★★★☆</ins> </div>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6">
+        <div class="single-shop-product">
+          <div class="product-upper">
+            <a href = 'MPEG-2.html'> 
+             <img src="{{url_for('static',filename='images/MPEG-2.jpg')}}"  alt=""> 
+            </a>
+          </div>
+          <h2><a href="MPEG-2.html" >&#12288;MPEG-2</a></h2>
+          <div class="product-carousel-price"> <ins>难度系数★★★★☆</ins> </div>
+         
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6">
+        <div class="single-shop-product">
+          <div class="product-upper">
+            <a href = 'MPEG-7.html'> 
+             <img src="{{url_for('static',filename='images/MPEG-7.jpg')}}"  alt=""> 
+            </a>
+          </div>
+          <h2><a href="MPEG-7.html" >&#12288;MPEG-7</a></h2>
+          <div class="product-carousel-price"> <ins>难度系数★★★★☆</ins> </div>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6">
+        <div class="single-shop-product">
+          <div class="product-upper">
+            <a href = 'MPEG-4.html'> 
+             <img src="{{url_for('static',filename='images/MPEG-4.jpg')}}"  alt=""> 
+            </a>
+          </div>
+          <h2><a href="MPEG-4.html" >&#12288;MPEG-4</a></h2>
+          <div class="product-carousel-price"> <ins>难度系数★★★★☆</ins> </div>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6">
+        <div class="single-shop-product">
+          <div class="product-upper">
+            <a href = 'MPEG-21.html'> 
+             <img src="{{url_for('static',filename='images/MPEG-21.jpg')}}"  alt=""> 
+            </a>
+          </div>
+          <h2><a href="MPEG-21.html" >&#12288;MPEG-21</a></h2>
+          <div class="product-carousel-price"> <ins>难度系数★★★★☆</ins> </div>
+         
+        </div>
+      </div>
+
+
+     
+      <div class="col-md-3 col-sm-6">
+        <div class="single-shop-product">
+          <div class="product-upper">
+            <a href = 'MPEG-21.html'> 
+             <img src="{{url_for('static',filename='images/MPEG-21.jpg')}}"  alt=""> 
+            </a>
+          </div>
+          <h2><a href="MPEG-21.html" >&#12288;MPEG-21</a></h2>
+          <div class="product-carousel-price"> <ins>难度系数★★★★☆</ins> </div>
+        </div>
+      </div>
+
+        <div class="col-md-3 col-sm-6">
+        <div class="single-shop-product">
+          <div class="product-upper">
+            <a href = 'MPEG-21.html'> 
+             <img src="{{url_for('static',filename='images/MPEG-21.jpg')}}"  alt=""> 
+            </a>
+          </div>
+          <h2><a href="MPEG-21.html" >&#12288;MPEG-21</a></h2>
+          <div class="product-carousel-price"> <ins>难度系数★★★★☆</ins> </div>
+         
+        </div>
+      </div>
+
+        <div class="col-md-3 col-sm-6">
+        <div class="single-shop-product">
+          <div class="product-upper">
+            <a href = 'MPEG-21.html'> 
+             <img src="{{url_for('static',filename='images/MPEG-21.jpg')}}"  alt=""> 
+            </a>
+          </div>
+          <h2><a href="MPEG-21.html" >&#12288;MPEG-21</a></h2>
+          <div class="product-carousel-price"> <ins>难度系数★★★★☆</ins> </div>
+       </div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <div class="single-shop-product">
+
+          <div class="product-upper">
+            <a href = 'MPEG-21.html'> 
+             <img src="{{url_for('static',filename='images/MPEG-21.jpg')}}"  alt=""> 
+            </a>
+          </div>
+          <h2><a href="MPEG-21.html" >&#12288;MPEG-21</a></h2>
+          <div class="product-carousel-price"> <ins>难度系数★★★★☆</ins> </div>
+  
+        </div>
+      </div>
+      
+   </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="product-pagination text-center">
+          <nav>
+            <ul class="pagination">
+              <li> <a href="#" aria-label="上一页"> <span aria-hidden="true">&laquo;</span> </a> </li>
+              <li><a href="#">1</a></li>
+              <li><a href="#">2</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">4</a></li>
+              <li><a href="#">5</a></li>
+              <li> <a href="#" aria-label="下一页"> <span aria-hidden="true">&raquo;</span> </a> </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

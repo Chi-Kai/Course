@@ -1,0 +1,54 @@
+{% extends 'subbase.html' %}
+
+
+{% block bt %}
+
+<div class="navbar-collapse collapse">
+  <ul class="nav navbar-nav">
+    <li ><a href="{{url_for('view.index')}}">课程简介</a></li>
+    <li ><a href="{{url_for('view.image')}}">图像处理</a></li>
+    <li ><a href="{{url_for('view.sound')}}">音频处理</a></li>
+    <li ><a href="{{url_for('view.video')}}">视频处理</a></li>
+ 
+    <li class="active"><a href="{{url_for('view.messages')}}">课程通知</a></li>
+    <li><a href="{{url_for('view.work')}}">作业展示</a></li>
+    <li><a href="{{url_for('view.join')}}">我要参与</a></li>
+    <li><a href="{{url_for('view.more')}}">查看更多</a></li>
+  </ul>
+</div>
+
+{% endblock %}
+
+
+
+{% block style%}
+
+<link rel="stylesheet" href="{{url_for('static',filename='css/a.css')}}">
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="link">
+	<ul class="ul">
+		
+        {% for ms in messges %}
+        
+        <li class="li">
+			<div class="li-a">
+				<div class="top">
+					<i class="fa fa-bookmark"></i>
+					<a href="#">
+						{{ms.title|e}}
+					</a>
+				</div>
+
+			</div>
+		</li>
+
+        {% endfor %}
+        
+	</ul>
+</div>	
+{% endblock%}

@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+
+{% block style %}
+
+<style>
+  #content {
+      margin: 0px 200px auto;
+      position: relative;
+      /* background-color: rgba(193, 200, 230, 0.5); */
+  }
+  
+  input[type] {
+      border-radius: 30px;
+      width: 60%;
+      height: 60px;
+      margin-left: 0px;
+      border-style: hidden;
+      /* background-color: rgba(191, 200, 216, 0.5); */
+      outline: none;
+      color: black;
+      padding-left: 10px;
+      opacity: 0.7;
+  }
+  
+  input[type]:visited {
+      direction: none;
+  }
+  
+  button[type="submit"] {
+      border-radius: 30px;
+      width: 60%;
+      height: 60px;
+  }
+  
+  #a1:hover {
+      font-weight: bolder;
+      font-size: larger;
+  }
+  
+  .logindiv {
+      width: 90%;
+      /* display: flex; */
+      /* justify-content: center; */
+      align-items: center;
+      height: 600px;
+      background-color: rgba(75, 81, 95, 0.3);
+      box-shadow: 7px 7px 17px rgba(52, 56, 66, 0.5);
+      border-radius: 5px;
+      padding: 50px 0px;
+      margin: 20px 0px;
+  }
+</style>
+
+{% endblock %}
+
+{% block content %}
+
+<div id="content" class="row">
+  <div class="col-md-8 col-md-offset-2">
+
+      <div class="row logindiv">
+
+          <div class="col-md-offset-3">
+              <h3 style="color: black;font-family:隶书;font-size:50px;" class="col-md-offset-3">登录</h3>
+              <form method="post">
+                  <div>
+                      <div>
+                          <span>用户名： </span>
+                          <br>
+                          <input id="sno" name="sno" placeholder="请输入用户名" type="text" aria-describedby="exampleInputEmail" required maxlength="50">
+                      </div>
+                  </div>
+                  <br>
+                  <div>
+                      <div>
+                          <span>密　码：</span>
+                          <br>
+                          <input id="password" name="password" placeholder="请输入密码" type="password" aria-describedby="exampleInputPassword" required maxlength="50">
+
+                      </div>
+                  </div>
+                  <br>
+
+                  <div class="cta-button">
+                      <input id="userIp" type="hidden" name="userIp" />
+                      <button type="submit" id="signin" class="background-Engati" style="background:#5a88ca;">登录</button>
+                  </div>
+
+                 
+              </form>
+
+
+          </div>
+      </div>
+  </div>
+</div>
+
+{% endblock%}

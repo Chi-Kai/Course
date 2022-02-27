@@ -1,0 +1,197 @@
+{% extends 'base.html' %}
+
+
+
+{% block bt %}
+
+<div class="navbar-collapse collapse">
+  <ul class="nav navbar-nav">
+    <li ><a href="{{url_for('view.index')}}">课程简介</a></li>
+    <li class="active"><a href="{{url_for('view.image')}}">图像处理</a></li>
+    <li><a href="{{url_for('view.sound')}}">音频处理</a></li>
+    <li><a href="{{url_for('view.video')}}">视频处理</a></li>
+ 
+    <li><a href="{{url_for('view.messages')}}">课程通知</a></li>
+    <li><a href="{{url_for('view.work')}}">作业展示</a></li>
+    <li><a href="{{url_for('view.join')}}">我要参与</a></li>
+    <li><a href="{{url_for('view.more')}}">查看更多</a></li>
+  </ul>
+</div>
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="product-big-title-area">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="product-bit-title text-center">
+          <h2>热点直击</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="single-product-area">
+  <div class="zigzag-bottom"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-6">
+        <div class="single-shop-product">
+          <div class="product-upper">
+            <a href = "{{url_for('view.AC')}}"> 
+             <img src="{{url_for('static',filename='images/算术编码.jpg')}}"  alt=""> 
+            </a>
+          </div>
+          <h2><a href="{{url_for('view.AC')}}" >&#12288;算术编码</a></h2>
+          <div class="product-carousel-price"> <ins>难度系数★★☆☆☆</ins> </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <div class="single-shop-product">
+          <div class="product-upper">
+            <a href = "{{url_for('view.HM')}}"> 
+             <img src="{{url_for('static',filename='images/哈弗曼编码.jpg')}}"  alt=""> 
+            </a>
+          </div>
+          <h2><a href="{{url_for('view.HM')}}">哈弗曼编码</a></h2>
+         <div class="product-carousel-price"> <ins>难度系数★★☆☆☆</ins> </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <div class="single-shop-product">
+          <div class="product-upper">
+            <a href = "{{url_for('view.XM')}}"> 
+             <img src="{{url_for('static',filename='images/行程编码.jpg')}}"  alt=""> 
+            </a>
+          </div>
+          <h2><a href="{{url_for('view.XM')}}">行程编码</a></h2>
+          <div class="product-carousel-price"> <ins>难度系数★★★☆☆</ins> </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <div class="single-shop-product">
+          <div class="product-upper">
+            <a href = "{{url_for('view.CM')}}"> 
+             <img src="{{url_for('static',filename='images/词典编码.jpg')}}"  alt=""> 
+            </a>
+          </div>
+          <h2><a href="{{url_for('view.CM')}}">词典编码</a></h2>
+         <div class="product-carousel-price"> <ins>难度系数★★★★☆</ins> </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <div class="single-shop-product">
+          <div class="product-upper">
+            <a href = '无损预测.html'> 
+             <img src="{{url_for('static',filename='images/无损预测编码.jpg')}}"  alt=""> 
+            </a>
+          </div>
+          <h2><a href="无损预测.html" >&#12288;无损预测编码</a></h2>
+          <div class="product-carousel-price"> <ins>难度系数★★★★☆</ins> </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <div class="single-shop-product">
+          <div class="product-upper">
+            <a href = '量化.html'> 
+             <img src="{{url_for('static',filename='images/量化.jpg')}}"  alt=""> 
+            </a>
+          </div>
+          <h2><a href="量化.html" >&#12288;量化</a></h2>
+          <div class="product-carousel-price"> <ins>难度系数★★★★☆</ins> </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <div class="single-shop-product">
+          <div class="product-upper">
+            <a href = '有损预测编码.html'> 
+             <img src="{{url_for('static',filename='images/有损预测编码.jpg')}}"  alt=""> 
+            </a>
+          </div>
+          <h2><a href="有损预测编码.html" >&#12288;有损预测编码</a></h2>
+          <div class="product-carousel-price"> <ins>难度系数★★★★☆</ins> </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <div class="single-shop-product">
+          <div class="product-upper">
+            <a href = '变换编码.html'> 
+             <img src="{{url_for('static',filename='images/变换编码.jpg')}}"  alt=""> 
+            </a>
+          </div>
+          <h2><a href="变换编码.html" >&#12288;变换编码</a></h2>
+          <div class="product-carousel-price"> <ins>难度系数★★★★☆</ins> </div>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6">
+        <div class="single-shop-product">
+          <div class="product-upper">
+            <a href = 'JPEG.html'> 
+             <img src="{{url_for('static',filename='images/JPEG.jpg')}}"  alt=""> 
+            </a>
+          </div>
+          <h2><a href="JPEG.html" >&#12288;JPEG</a></h2>
+          <div class="product-carousel-price"> <ins>难度系数★★★★☆</ins> </div>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6">
+        <div class="single-shop-product">
+          <div class="product-upper">
+            <a href = 'PNG.html'> 
+             <img src="{{url_for('static',filename='images/PNG.jpg')}}"  alt=""> 
+            </a>
+          </div>
+          <h2><a href="PNG.html" >&#12288;png</a></h2>
+          <div class="product-carousel-price"> <ins>难度系数★★★★☆</ins> </div>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6">
+        <div class="single-shop-product">
+          <div class="product-upper">
+            <a href = 'GIF.html'> 
+             <img src="{{url_for('static',filename='images/GIF.jpg')}}"  alt=""> 
+            </a>
+          </div>
+          <h2><a href="GIF.html" >&#12288;GIF</a></h2>
+          <div class="product-carousel-price"> <ins>难度系数★★★★☆</ins> </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <div class="single-shop-product">
+          <div class="product-upper">
+            <a href = 'SVG.html'> 
+             <img src="{{url_for('static',filename='images/svg.jpg')}}"  alt=""> 
+            </a>
+          </div>
+          <h2><a href="SVG.html" >&#12288;svg</a></h2>
+          <div class="product-carousel-price"> <ins>难度系数★★★★☆</ins> </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="product-pagination text-center">
+          <nav>
+            <ul class="pagination">
+              <li> <a href="#" aria-label="上一页"> <span aria-hidden="true">&laquo;</span> </a> </li>
+              <li><a href="#">1</a></li>
+              <li><a href="#">2</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">4</a></li>
+              <li><a href="#">5</a></li>
+              <li> <a href="#" aria-label="下一页"> <span aria-hidden="true">&raquo;</span> </a> </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

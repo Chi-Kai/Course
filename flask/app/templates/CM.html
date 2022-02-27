@@ -1,0 +1,82 @@
+{% extends 'subbase.html' %}
+
+{% block bt%}
+{{ super() }}
+{% endblock%}
+
+
+{% block content %}
+
+<div class="content">
+  <div class="a">
+ 
+   <div class="left">
+     <div class="img">
+      <img src="./images/图片/图云.png" alt="" class="quality_small_bottle">
+    
+     </div>
+  </div>
+
+  <div class= "right">
+    <div class="title" style=" font-family:'cyjianxk28858b0a752368e';">
+      词典编码
+    </div>
+    <div id="accordion">
+      <div class="card">
+        <div class="card-header" id="headingOne">
+          <h5 class="mb-0" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+                  aria-controls="collapseOne" style="font-family:'cyjianxk28856179772368e';">
+              介绍
+          </h5>
+       </div>
+
+       <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+         <div class="card-body">
+            <p class="paragraph" style = "font-family:LiDeBiao-Xing3">
+              词典编码 包括 LZW编码 是1977年有两位以色列教授发明 Lempel-Ziv压缩技术。并在1985年，美国的Wekch对该算法进行了改进。其基本思想是 用符号代替一串字符；这一串字符可以是有意义的，也可以是无意义的。此压缩技术是围绕词典的转换来完成，这个词典实际是8位ASCII字符集进行了扩充。扩充后的代码有，9位，10位，11位，12位，乃至更多。12位的代码可以有4096个不同的代码。
+            </p>
+         </div>
+       </div>
+      </div>
+     <div class="card">
+       <div class="card-header" id="headingTwo">
+         <h5 class="mb-0" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
+                  aria-controls="collapseTwo" style="font-family:'cyjianxk28856d138f2368e';">   
+           视频
+         </h5>
+       </div>
+       <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+         <div class="card-body">
+          <video width="300" height="200" controls="controls">
+            <source src="video\词典编码.mp4" type="video/mp4">
+          </video>
+         </div>
+       </div>
+     </div>
+   <div class="card">
+     <div class="card-header" id="headingThree">
+      <h5 class="mb-0" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true"
+                  aria-controls="collapseThree" style="font-family:'cyjianxk2886a9090f2368e';">  
+        扩展
+      </h5>
+    </div>
+      <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+       <div class="card-body">
+        <a href="https://colab.research.google.com/drive/1jayxHhYGdyB0LJAyFM9q1fH9OO-MI51O?hl=zh-cn#scrollTo=aHubekCedNyO">python实验</a>
+        <a href="https://baike.baidu.com/item/%E8%AF%8D%E5%85%B8%E7%BC%96%E7%A0%81">百度百科</a>
+        <a href="https://zh.wikipedia.org/wiki/%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81">维基百科</a> 
+       </div>
+      </div>
+    </div>
+    
+
+  </div>
+  <button class="btn">
+    <a href="{{url_for('view.ckeditor')}}">commit</a>
+  </button>
+   
+</div>
+  
+</div>
+
+{% endblock  %}
