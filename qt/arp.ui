@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>arpForm</class>
+ <widget class="QWidget" name="arpForm">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>506</width>
+    <height>596</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>506</width>
+    <height>596</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>506</width>
+    <height>596</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>ARPAttack</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QLabel" name="label">
+         <property name="styleSheet">
+          <string notr="true">font: 81 italic 14pt &quot;JetBrainsMonoExtraBold Nerd Font Mono&quot;;</string>
+         </property>
+         <property name="text">
+          <string>Src  IP</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="srciplineEdit">
+         <property name="styleSheet">
+          <string notr="true">color: rgb(255, 14, 78);
+font: 81 italic 14pt &quot;JetBrainsMonoExtraBold Nerd Font Mono&quot;;</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item>
+        <widget class="QLabel" name="label_2">
+         <property name="styleSheet">
+          <string notr="true">font: 81 italic 14pt &quot;JetBrainsMonoExtraBold Nerd Font Mono&quot;;</string>
+         </property>
+         <property name="text">
+          <string>Src  MAC</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="srcmaclineEdit">
+         <property name="styleSheet">
+          <string notr="true">color: rgb(255, 14, 78);
+font: 81 italic 14pt &quot;JetBrainsMonoExtraBold Nerd Font Mono&quot;;</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <item>
+        <widget class="QLabel" name="label_3">
+         <property name="styleSheet">
+          <string notr="true">font: 81 italic 14pt &quot;JetBrainsMonoExtraBold Nerd Font Mono&quot;;</string>
+         </property>
+         <property name="text">
+          <string>Dst  IP</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="dstiplineEdit">
+         <property name="styleSheet">
+          <string notr="true">color: rgb(255, 14, 78);
+font: 81 italic 14pt &quot;JetBrainsMonoExtraBold Nerd Font Mono&quot;;</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_4">
+       <item>
+        <widget class="QLabel" name="label_4">
+         <property name="styleSheet">
+          <string notr="true">font: 81 italic 14pt &quot;JetBrainsMonoExtraBold Nerd Font Mono&quot;;</string>
+         </property>
+         <property name="text">
+          <string>Dst MAC</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="dstmaclineEdit">
+         <property name="styleSheet">
+          <string notr="true">color: rgb(255, 14, 78);
+font: 81 italic 14pt &quot;JetBrainsMonoExtraBold Nerd Font Mono&quot;;</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <widget class="QTextBrowser" name="textBrowser">
+       <property name="styleSheet">
+        <string notr="true">
+font: 81 italic 14pt &quot;JetBrainsMonoExtraBold Nerd Font Mono&quot;;</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_5">
+       <item>
+        <widget class="QLineEdit" name="numlineEdit">
+         <property name="font">
+          <font>
+           <family>Font Awesome 5 Free</family>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>300</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="startButton">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">font: 81 italic 14pt &quot;JetBrainsMonoExtraBold Nerd Font Mono&quot;;</string>
+         </property>
+         <property name="text">
+          <string>Start</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="quitButton">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">font: 81 italic 14pt &quot;JetBrainsMonoExtraBold Nerd Font Mono&quot;;</string>
+         </property>
+         <property name="text">
+          <string>quit</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>quitButton</sender>
+   <signal>clicked()</signal>
+   <receiver>arpForm</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>454</x>
+     <y>564</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>252</x>
+     <y>297</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
