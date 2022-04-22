@@ -17,5 +17,4 @@ advanced.o: advanced.cc shell.h tools.h
 clean:
 	rm -f *.o
 cleanfile:
-	rm [0-9]*
 	rm .history
