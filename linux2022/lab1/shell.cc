@@ -11,6 +11,7 @@
 #include <functional>
 #include <iostream>
 #include <string>
+#include <sstream>
 #include <fstream>
 #include <filesystem>
 #include "shell.h"
@@ -40,6 +41,8 @@ void Shell::init() {
   readconfig();
   clear();
   welcome();
+  // init pipe_stream
+  pipe_stream << "";
   // check history file exist
   if (!filesystem::exists(history_file)) {
     // create history file
@@ -65,7 +68,12 @@ void Shell::run() {
       background();
       continue;
     }
-
+    // if | is in the input, pipe
+    if (input.find("|") != string::npos) {
+      // cout << "pipe" << endl;
+      pipe();
+      continue;
+    }
     // if > is in the input, redirect
     if (input.find(">") != string::npos) {
       // cout << "redirect" << endl;
@@ -129,34 +137,3 @@ void Shell::history() {
   // close history file
   ifs.close();
 }
-/*
-// deal arrow key
-void Shell::arrow_key() {
-  // if key is u
-  if (key == KEY_UP) {
-    // if history_index is 0, do nothing
-    if (history_index == 0) {
-      return;
-    }
-    // if history_index is not 0, minus 1
-    history_index--;
-    // get history command
-    input = history_list[history_index];
-    // print input
-    cout << input << endl;
-  }
-  // if key is down
-  if (key == KEY_DOWN) {
-    // if history_index is history_list.size(), do nothing
-    if (history_index == history_list.size()) {
-      return;
-    }
-    // if history_index is not history_list.size(), plus 1
-    history_index++;
-    // get history command
-    input = history_list[history_index];
-    // print input
-    cout << input << endl;
-  }
-}
-*/

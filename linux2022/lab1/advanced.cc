@@ -6,6 +6,7 @@
 #include <fstream>
 #include <iostream>
 #include <streambuf>
+#include<sstream>
 #include <string>
 #include "shell.h"
 #include "tools.h"
@@ -57,3 +58,42 @@ void Shell::background() {
     std::exit(0);
   }
 }
+// run command with pipe
+void Shell::pipe() {
+  // split by |
+  string his = input;
+  // redirect to pipe 
+  streambuf* buf = cout.rdbuf();
+  cout.rdbuf(pipe_stream.rdbuf());
+  // add_history
+  add_history(input);
+  
+  vector<string> arg = split(input, '|');
+  // run command with pipe
+  for (int i = 0; i < arg.size() - 1; i++) {
+    // delete space in the end
+    string cmd = arg[i];
+    delete_all_space(cmd);
+    // redirect stdout to string stream
+    // run command
+    input = cmd;
+    run_once();
+    // refresh stream
+    cout.flush();
+    pipe_stream.clear();
+  }
+  
+  // delete space in the end
+  string cmd = arg[arg.size() - 1];
+  delete_all_space(cmd);
+  // redirect to stdout 
+  cout.rdbuf(buf);
+  // run command
+  input = cmd;
+  run_once();
+  // reset pipe_stream
+  pipe_stream.clear();
+
+}
+
+

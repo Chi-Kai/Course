@@ -53,6 +53,8 @@ void Shell::readconfig() {
   prompt_text = configmap["PROMPT_TEXT"];
   wlcolor =colors[configmap["WL_COLOR"]];
   wltext = configmap["WL_TEXT"];
+  byecolor = colors[configmap["BYE_COLOR"]];
+  bye = configmap["BYE"];
   command_color = colors[configmap["CMD_COLOR"]];
   history_file = configmap["HIST_FILE"];
 }

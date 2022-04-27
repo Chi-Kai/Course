@@ -11,6 +11,7 @@
 #include <filesystem>
 #include <fstream>
 #include <iostream>
+#include <sstream>
 
 #include "shell.h"
 using namespace std;
@@ -42,7 +43,7 @@ void Shell::pwd() {
 void Shell::cd() {
   print_reset();
   // if redirect flag is set, redirect the output to the file
-  //if (re
+  // if (re
   if (args.size() == 1) {
     std::cout << "cd dir" << std::endl;
     return;
@@ -60,7 +61,7 @@ void Shell::ls() {
   // ls
   if (args.size() == 1) {
     for (auto& p : std::filesystem::directory_iterator(".")) {
-      std::cout << p.path().filename() << std::endl;
+      std::cout << p.path().filename().string() << std::endl;
     }
   }
   // ls -l
@@ -68,44 +69,73 @@ void Shell::ls() {
   // ls -a
   else if (args.size() == 2 && args[1] == "-a") {
     for (auto& p : std::filesystem::directory_iterator(".")) {
-      std::cout << p.path().filename() << std::endl;
+      std::cout << p.path().filename().string() << std::endl;
     }
   }
   // ls dir
   else if (args.size() == 2) {
     try {
       for (auto& p : std::filesystem::directory_iterator(args[1])) {
-        std::cout << p.path().filename() << std::endl;
+        std::cout << p.path().filename().string() << std::endl;
       }
     } catch (std::filesystem::filesystem_error& e) {
-     std::cout << "ls: invalid option" << std::endl;
+      std::cout << "ls: invalid option" << std::endl;
     }
   }
- 
 }
 
 // wc - count the lines, words and characters in a file
 void Shell::wc() {
   print_reset();
-  if (args.size() == 1) {
-    std::cout << "wc file" << std::endl;
+  // wc no args
+  if (pipe_stream.str().size() != 0) {
+    std::string line;
+    int lines = 0;
+    int words = 0;
+    int chars = 0;
+    while (std::getline(pipe_stream, line)) {
+      lines++;
+      int word = std::count(line.begin(), line.end(), ' ');
+      // single word
+      if (word == 0 && line.size() != 0) {
+         word++;
+      }
+      words += word;
+      chars += line.size();
+    }
+    std::cout << "lines : " << lines << endl
+              << "words : " << words << endl
+              << "chars : " << chars << std::endl;
+
     return;
-  }
-  std::ifstream in(args[1]);
-  if (!in) {
-    std::cout << "wc: cannot open '" << args[1] << "'" << std::endl;
+  }  // pipe mode
+  else if (args.size() == 1) {
+    std::cout << "wc: no input" << std::endl;
     return;
+  } else {  // file mode
+    std::ifstream in(args[1]);
+    if (!in) {
+      std::cout << "wc: cannot open '" << args[1] << "'" << std::endl;
+      return;
+    }
+    int lines = 0;
+    int words = 0;
+    int chars = 0;
+    std::string line;
+    while (std::getline(in, line)) {
+      lines++;
+      int word = std::count(line.begin(), line.end(), ' ');
+      // single word
+      if (word == 0 && line.size() != 0) {
+         word++;
+      }
+      words += word;
+      chars += line.size();
+    }
+    std::cout << "lines : " << lines << endl
+              << "words : " << words << endl
+              << "chars : " << chars << std::endl;
   }
-  int lines = 0;
-  int words = 0;
-  int chars = 0;
-  std::string line;
-  while (std::getline(in, line)) {
-    lines++;
-    words += std::count(line.begin(), line.end(), ' ');
-    chars += line.size();
-  }
-  std::cout <<"lines : " <<lines <<endl<<"words : " << words <<endl<< "chars : " << chars << std::endl;
 }
 
 // cat - concatenate files and print on the standard output

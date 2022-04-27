@@ -43,5 +43,7 @@ void Shell::help() {
   cout << "wc\t\t\tcount chars\t\tfile" << endl;
   cout << "mkdir\t\t\tmake directory\t\tpath" << endl;
   cout << "rm\t\t\tremove file\t\tfile" << endl;
-
+  cout << "-------------------------------------------------------"<<endl;
+  cout << "you can config color , prompt and welcome message in config.ck"<<endl;
+  cout << "-------------------------------------------------------"<<endl;
 }

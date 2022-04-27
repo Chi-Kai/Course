@@ -77,7 +77,7 @@ void Shell::echo() {
 	cout << extract_args(input, "echo") << endl; }
 // exit
 void Shell::exit() {
-  cout << "Bye!" << endl;
+  cout << byecolor << bye << endl;
   // avoid name conflict
   std::exit(0);
 }

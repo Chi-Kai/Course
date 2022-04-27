@@ -5,6 +5,7 @@
 #define SHELL_H
 #include <functional>
 #include <iostream>
+#include <sstream>
 #include <map>
 #include <string>
 #include <vector>
@@ -16,15 +17,14 @@ using namespace std;
 #define Yellow "\033[0;33m"
 #define White "\033[ 0;37m"
 
-#define KEY_UP 72
-#define KEY_DOWN 80
-
 class Shell {
  private:
   // store config variables
   map<string,string> configmap;
   string wlcolor = Yellow;
   string wltext = "";
+  string byecolor;
+  string bye = "";
   string prompt_text = ">>";
   string prompt_color = White;
   string command_color = Blue;
@@ -34,7 +34,8 @@ class Shell {
   string history_file;
 
   vector<string> args;
-
+  // pipe string stream
+  stringstream pipe_stream;
   // map of commands
   // key: command name void (*func)(void);
   // value: function pointer
@@ -75,5 +76,7 @@ class Shell {
   void redirect();
   // background
   void background();
+  // pipe 
+  void pipe();
 };
 #endif
