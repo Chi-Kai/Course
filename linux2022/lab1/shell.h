@@ -1,12 +1,12 @@
 /*
  * the file defines the class of the data structure of the shell
-*/
+ */
 #ifndef SHELL_H
 #define SHELL_H
 #include <functional>
 #include <iostream>
-#include <sstream>
 #include <map>
+#include <sstream>
 #include <string>
 #include <vector>
 using namespace std;
@@ -20,7 +20,7 @@ using namespace std;
 class Shell {
  private:
   // store config variables
-  map<string,string> configmap;
+  map<string, string> configmap;
   string wlcolor = Yellow;
   string wltext = "";
   string byecolor;
@@ -47,7 +47,7 @@ class Shell {
   Shell();
   // destructor
   ~Shell(){};
-  //shell function
+  // shell function
   void run();
   void run_once();
   void init();
@@ -55,7 +55,7 @@ class Shell {
   void add_history(string);
   void print_prompt();
   void print_reset();
-  //command functions
+  // command functions
   void clear();
   void welcome();
   void help();
@@ -70,13 +70,20 @@ class Shell {
   void pwd();
   void mkdir();
   void rm();
-  //set function
+  void cp();
+  void mv();
+  void touch();
+  void rename();
+  void grep();
+  void exec();
+
+  // set function
   void readconfig();
   // redirect
   void redirect();
   // background
   void background();
-  // pipe 
+  // pipe
   void pipe();
 };
 #endif

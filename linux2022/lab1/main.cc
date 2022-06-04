@@ -1,12 +1,12 @@
 /* main function
  */
+#include "shell.h"
 #include <iostream>
 #include <string>
-#include "shell.h"
 using namespace std;
 
 int main() {
-    Shell shell;
-    shell.run();
-    return 0;
+  Shell shell;
+  shell.run();
+  return 0;
 }

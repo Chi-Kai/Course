@@ -6,6 +6,8 @@
  * cat - concatenate files
  * ls - list files in a directory
  * wc - count lines, words, and characters in a file
+ * cp - copy file
+ * touch - create a file
  */
 #include <cstdio>
 #include <filesystem>
@@ -28,7 +30,7 @@ void Shell::rm() {
 void Shell::mkdir() {
   print_reset();
   for (int i = 1; i < args.size(); i++) {
-    if (std::filesystem::create_directory(args[i]))
+    if (!std::filesystem::create_directory(args[i]))
       std::cout << "mkdir: cannot create '" << args[i] << "'" << std::endl;
   }
 }
@@ -36,7 +38,7 @@ void Shell::mkdir() {
 // show the current directory
 void Shell::pwd() {
   print_reset();
-  std::cout << std::filesystem::current_path() << std::endl;
+  std::cout << std::filesystem::current_path().string() << std::endl;
 }
 
 // change the current directory
@@ -50,7 +52,7 @@ void Shell::cd() {
   }
   try {
     std::filesystem::current_path(args[1]);
-  } catch (std::filesystem::filesystem_error& e) {
+  } catch (std::filesystem::filesystem_error &e) {
     std::cout << "cd: cannot change directory to '" << args[1] << "'"
               << std::endl;
   }
@@ -60,25 +62,25 @@ void Shell::ls() {
   print_reset();
   // ls
   if (args.size() == 1) {
-    for (auto& p : std::filesystem::directory_iterator(".")) {
-      std::cout << p.path().filename().string() << std::endl;
+    for (auto &p : std::filesystem::directory_iterator(".")) {
+      std::cout << p.path().filename().string() << endl;
     }
   }
   // ls -l
 
   // ls -a
   else if (args.size() == 2 && args[1] == "-a") {
-    for (auto& p : std::filesystem::directory_iterator(".")) {
+    for (auto &p : std::filesystem::directory_iterator(".")) {
       std::cout << p.path().filename().string() << std::endl;
     }
   }
   // ls dir
   else if (args.size() == 2) {
     try {
-      for (auto& p : std::filesystem::directory_iterator(args[1])) {
+      for (auto &p : std::filesystem::directory_iterator(args[1])) {
         std::cout << p.path().filename().string() << std::endl;
       }
-    } catch (std::filesystem::filesystem_error& e) {
+    } catch (std::filesystem::filesystem_error &e) {
       std::cout << "ls: invalid option" << std::endl;
     }
   }
@@ -98,7 +100,7 @@ void Shell::wc() {
       int word = std::count(line.begin(), line.end(), ' ');
       // single word
       if (word == 0 && line.size() != 0) {
-         word++;
+        word++;
       }
       words += word;
       chars += line.size();
@@ -108,11 +110,11 @@ void Shell::wc() {
               << "chars : " << chars << std::endl;
 
     return;
-  }  // pipe mode
+  } // pipe mode
   else if (args.size() == 1) {
     std::cout << "wc: no input" << std::endl;
     return;
-  } else {  // file mode
+  } else { // file mode
     std::ifstream in(args[1]);
     if (!in) {
       std::cout << "wc: cannot open '" << args[1] << "'" << std::endl;
@@ -127,7 +129,7 @@ void Shell::wc() {
       int word = std::count(line.begin(), line.end(), ' ');
       // single word
       if (word == 0 && line.size() != 0) {
-         word++;
+        word++;
       }
       words += word;
       chars += line.size();
@@ -141,34 +143,127 @@ void Shell::wc() {
 // cat - concatenate files and print on the standard output
 void Shell::cat() {
   print_reset();
+  // -n
+  if (args.size() == 3 && args[1] == "-n") {
+    for (int i = 2; i < args.size(); i++) {
+      std::ifstream in(args[i]);
+      if (!in) {
+        std::cout << "cat: cannot open '" << args[i] << "'" << std::endl;
+        return;
+      }
+      cout << args[i] << ":" << endl;
+      std::string line;
+      int line_num = 1;
+      while (std::getline(in, line)) {
+        std::cout << line_num << " " << line << std::endl;
+        line_num++;
+      }
+    }
+  } else {
+    for (int i = 1; i < args.size(); i++) {
+      std::ifstream in(args[i]);
+      if (!in) {
+        std::cout << "cat: cannot open '" << args[i] << "'" << std::endl;
+        return;
+      }
+      cout << args[i] << ":" << endl;
+      std::string line;
+      while (std::getline(in, line)) {
+        std::cout << line << std::endl;
+      }
+    }
+  }
+}
+// copy a file
+void Shell::cp() {
+  print_reset();
   if (args.size() == 1) {
-    std::cout << "cat file" << std::endl;
+    std::cout << "cp src dest" << std::endl;
     return;
   }
-  // cat -n
-  if (args.size() == 2 && args[1] == "-n") {
-    std::ifstream in(args[2]);
-    if (!in) {
-      std::cout << "cat: cannot open '" << args[2] << "'" << std::endl;
-      return;
-    }
-    int line = 1;
-    std::string line_str;
-    while (std::getline(in, line_str)) {
-      std::cout << line << " " << line_str << std::endl;
-      line++;
-    }
+  if (args.size() == 2) {
+    std::cout << "cp src dest" << std::endl;
+    return;
   }
-  // cat file
-  else if (args.size() == 2) {
-    std::ifstream in(args[1]);
-    if (!in) {
-      std::cout << "cat: cannot open '" << args[1] << "'" << std::endl;
-      return;
-    }
-    std::string line;
-    while (std::getline(in, line)) {
-      std::cout << line << std::endl;
-    }
+  std::ifstream in(args[1]);
+  if (!in) {
+    std::cout << "cp: cannot open '" << args[1] << "'" << std::endl;
+    return;
+  }
+  std::ofstream out(args[2]);
+  if (!out) {
+    std::cout << "cp: cannot create '" << args[2] << "'" << std::endl;
+    return;
+  }
+  std::string line;
+  while (std::getline(in, line)) {
+    out << line << std::endl;
+  }
+}
+// move a file
+void Shell::mv() {
+  print_reset();
+  if (args.size() == 1) {
+    std::cout << "mv src dest" << std::endl;
+    return;
+  }
+  if (args.size() == 2) {
+    std::cout << "mv src dest" << std::endl;
+    return;
+  }
+  std::ifstream in(args[1]);
+  if (!in) {
+    std::cout << "mv: cannot open '" << args[1] << "'" << std::endl;
+    return;
+  }
+  std::ofstream out(args[2]);
+  if (!out) {
+    std::cout << "mv: cannot create '" << args[2] << "'" << std::endl;
+    return;
+  }
+  std::string line;
+  while (std::getline(in, line)) {
+    out << line << std::endl;
+  }
+  std::filesystem::remove(args[1]);
+}
+// rename a file
+void Shell::rename() {
+  print_reset();
+  if (args.size() == 1) {
+    std::cout << "rename src dest" << std::endl;
+    return;
+  }
+  if (args.size() == 2) {
+    std::cout << "rename src dest" << std::endl;
+    return;
+  }
+  std::ifstream in(args[1]);
+  if (!in) {
+    std::cout << "rename: cannot open '" << args[1] << "'" << std::endl;
+    return;
+  }
+  std::ofstream out(args[2]);
+  if (!out) {
+    std::cout << "rename: cannot create '" << args[2] << "'" << std::endl;
+    return;
+  }
+  std::string line;
+  while (std::getline(in, line)) {
+    out << line << std::endl;
+  }
+  std::filesystem::rename(args[1], args[2]);
+}
+// touch - create an empty file
+void Shell::touch() {
+  print_reset();
+  if (args.size() == 1) {
+    std::cout << "touch file" << std::endl;
+    return;
+  }
+  std::ofstream out(args[1]);
+  if (!out) {
+    std::cout << "touch: cannot create '" << args[1] << "'" << std::endl;
+    return;
   }
 }

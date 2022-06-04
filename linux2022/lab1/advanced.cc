@@ -2,20 +2,20 @@
  * redirect - redirect the output of a command to a file
  * background - run a command in the background
  */
-#include <unistd.h>
-#include <fstream>
-#include <iostream>
-#include <streambuf>
-#include<sstream>
-#include <string>
 #include "shell.h"
 #include "tools.h"
+#include <fstream>
+#include <iostream>
+#include <sstream>
+#include <streambuf>
+#include <string>
+#include <unistd.h>
 
 using namespace std;
 
 // redirects stdout to a file
 void Shell::redirect() {
-   string his = input;
+  string his = input;
   // split by >
   vector<string> arg = split(input, '>');
 
@@ -23,7 +23,7 @@ void Shell::redirect() {
     // delete space in the end
     delete_all_space(arg[1]);
     // redirect to file
-    streambuf* buf = cout.rdbuf();
+    streambuf *buf = cout.rdbuf();
     ofstream out(arg[1]);
     cout.rdbuf(out.rdbuf());
     // run command
@@ -62,38 +62,38 @@ void Shell::background() {
 void Shell::pipe() {
   // split by |
   string his = input;
-  // redirect to pipe 
-  streambuf* buf = cout.rdbuf();
+  // redirect to pipe
+  streambuf *buf = cout.rdbuf();
   cout.rdbuf(pipe_stream.rdbuf());
   // add_history
   add_history(input);
-  
+
   vector<string> arg = split(input, '|');
   // run command with pipe
   for (int i = 0; i < arg.size() - 1; i++) {
     // delete space in the end
     string cmd = arg[i];
-    delete_all_space(cmd);
+    // refresh stream
+    // clear only reset state
+    // pipe_stream.clear();
+    // pipe_stream.str("");
     // redirect stdout to string stream
     // run command
     input = cmd;
     run_once();
-    // refresh stream
     cout.flush();
-    pipe_stream.clear();
   }
-  
+
   // delete space in the end
   string cmd = arg[arg.size() - 1];
-  delete_all_space(cmd);
-  // redirect to stdout 
+  // redirect to stdout
   cout.rdbuf(buf);
   // run command
   input = cmd;
   run_once();
-  // reset pipe_stream
+  cout.flush();
+  //  reset pipe_stream
+  //不能提前清空，否则wc 的输出会被清空
   pipe_stream.clear();
-
+  pipe_stream.str("");
 }
-
-

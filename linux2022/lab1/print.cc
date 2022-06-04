@@ -1,5 +1,5 @@
 /*
- * the file defines some functions about print 
+ * the file defines some functions about print
  *  print_prompt : print the prompt
  *  welcome : print the welcome message
  *  print_reset : reset color
@@ -14,23 +14,21 @@ using namespace std;
 
 //  reset_color for command after prompt
 void Shell::print_prompt() {
-    cout <<  prompt_color << prompt_text<< command_color;
+  cout << prompt_color << prompt_text << command_color;
 }
 
-void Shell::welcome() {
-  cout << wlcolor << wltext << endl;
-}
+void Shell::welcome() { cout << wlcolor << wltext << endl; }
 
 // reset_color for print
-void Shell::print_reset() {
-  cout << command_color;
-}
+void Shell::print_reset() { cout << command_color; }
 
-// help 
+// help
 void Shell::help() {
-  cout <<"-------------------------------------------------------"<<endl;
+  cout << "---------------------------------------------------------------"
+       << endl;
   cout << "COMD\t\t\tUSEG\t\t\tARGS" << endl;
-  cout << "-------------------------------------------------------"<<endl;
+  cout << "--------------------------------------------------------------"
+       << endl;
   cout << "clear\t\t\tclear screen\t\t" << endl;
   cout << "echo\t\t\techo chars\t\tchars" << endl;
   cout << "exit\t\t\texit shell\t\t" << endl;
@@ -43,7 +41,15 @@ void Shell::help() {
   cout << "wc\t\t\tcount chars\t\tfile" << endl;
   cout << "mkdir\t\t\tmake directory\t\tpath" << endl;
   cout << "rm\t\t\tremove file\t\tfile" << endl;
-  cout << "-------------------------------------------------------"<<endl;
-  cout << "you can config color , prompt and welcome message in config.ck"<<endl;
-  cout << "-------------------------------------------------------"<<endl;
+  cout << "cp\t\t\tcopy file\t\tfile" << endl;
+  cout << "mv\t\t\tmove file\t\tfile" << endl;
+  cout << "touch\t\t\tcreate file\t\tfile" << endl;
+  cout << "grep\t\t\tfind patten\t\tpatten file" << endl;
+  cout << "rename\t\t\tchange file name\tsrc des" << endl;
+  cout << "--------------------------------------------------------------"
+       << endl;
+  cout << "you can config color , prompt and welcome message in config.ck"
+       << endl;
+  cout << "--------------------------------------------------------------"
+       << endl;
 }

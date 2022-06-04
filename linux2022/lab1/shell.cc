@@ -7,14 +7,14 @@
  * history - the history of the shell
  * add_history - add a command to the history
  */
+#include "shell.h"
 #include <cstdio>
+#include <filesystem>
+#include <fstream>
 #include <functional>
 #include <iostream>
-#include <string>
 #include <sstream>
-#include <fstream>
-#include <filesystem>
-#include "shell.h"
+#include <string>
 using namespace std;
 // constructor
 // use map to store the command
@@ -32,6 +32,12 @@ Shell::Shell() {
   commands["wc"] = bind(&Shell::wc, this);
   commands["help"] = bind(&Shell::help, this);
   commands["history"] = bind(&Shell::history, this);
+  commands["cp"] = bind(&Shell::cp, this);
+  commands["mv"] = bind(&Shell::mv, this);
+  commands["grep"] = bind(&Shell::grep, this);
+  commands["touch"] = bind(&Shell::touch, this);
+  commands["rename"] = bind(&Shell::rename, this);
+
   // init
   init();
 }

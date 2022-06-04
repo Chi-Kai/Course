@@ -38,10 +38,11 @@ void Shell::readconfig() {
         delete_all_space(keystr);
         string key = keystr.substr(0, line.find("="));
         // read value
-        string value = line.substr(line.find_first_of("\"")+1,
-				   line.find_last_of("\"")-line.find_first_of("\"")-1);
+        string value =
+            line.substr(line.find_first_of("\"") + 1,
+                        line.find_last_of("\"") - line.find_first_of("\"") - 1);
         configmap[key] = value;
-	//cout << "read key:" << key << " value:" << value << endl;
+        // cout << "read key:" << key << " value:" << value << endl;
       }
     } catch (...) {
       cout << "Error reading config file" << endl;
@@ -51,7 +52,7 @@ void Shell::readconfig() {
 
   prompt_color = colors[configmap["PROMPT_COLOR"]];
   prompt_text = configmap["PROMPT_TEXT"];
-  wlcolor =colors[configmap["WL_COLOR"]];
+  wlcolor = colors[configmap["WL_COLOR"]];
   wltext = configmap["WL_TEXT"];
   byecolor = colors[configmap["BYE_COLOR"]];
   bye = configmap["BYE"];

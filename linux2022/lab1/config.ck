@@ -10,7 +10,7 @@ WL_COLOR="yellow"
 #
 # prompt config
 # prompt content
-PROMPT_TEXT="$ "
+PROMPT_TEXT="$-> "
 # prompt color
 #
 PROMPT_COLOR="blue"

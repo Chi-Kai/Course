@@ -72,9 +72,14 @@ void Shell::parse() {
 // clear shell
 void Shell::clear() { cout << "\033[2J\033[1;1H"; }
 // echo function
-void Shell::echo() { 
-        print_reset();
-	cout << extract_args(input, "echo") << endl; }
+void Shell::echo() {
+  print_reset();
+  // pipe case
+  if (pipe_stream.str().size() != 0) {
+    cout << pipe_stream.str() << endl;
+  } else
+    cout << extract_args(input, "echo") << endl;
+}
 // exit
 void Shell::exit() {
   cout << byecolor << bye << endl;

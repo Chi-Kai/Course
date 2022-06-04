@@ -62,3 +62,657 @@ ls | wc | wc
 ls | wc | wc
 ls | wc | wc | wc
 ls | wc | wc | wc | wc
+ls
+grep 
+grep ls .history
+wc
+wc history
+wc .history
+wc .history | grep lines
+wc .history | echo
+ls
+rename 1.txt 2
+ls
+touch 3
+ls
+cat 2
+cat 3
+cp 2 4
+cat 4
+ls
+cat 2 | echo
+cat 4
+cat 4 | echo
+ls 
+ls | grep shell
+ls | grep shell | wc
+ls | grep shell | wc
+ls | grep shell
+ls | wc
+ls | wc |wc
+ls | grep | wc
+ls | grep shell | wc
+grep shell | wc
+grep shell
+ls | grep shell
+ls | grep shell | echo
+ls | ec
+ls | wc 
+ls | wc | echo
+ls | wc 
+ls | wc | wc
+ls | wc | wc
+ls | echo
+ls
+ls | wc
+ls | wc
+ls | wc
+ls | wc
+ls | grep shell
+ls | grep shell | wc
+ls | echo
+ls | echo > 3
+ echo > 3
+cat 3
+clear
+ls
+ls | grep 
+ls | grep shell
+ls | grep shell
+ls | grep shell | wc
+ls | wc
+ls | wc | wc
+wc .history
+wc
+wc
+wc
+ls
+ls | wc
+ls | wc
+ls | grep shell
+ls
+ls
+ls | grep shell
+grep shell .history
+grep she
+grep s 1
+grep shell
+grep shell .history
+ls | grep shell
+ls | grep shell | wc
+wc
+wc
+wc
+wc
+wc
+wc
+wc 
+wc .history
+grep
+grep shell .history
+wc
+wc .history
+ls | grep shell
+ls | grep shell | wc
+wc
+wc
+wc
+wc
+wc
+wc
+wc
+wc .history
+ls | wc
+wc
+wc
+wc
+wc
+wc
+wc
+ls
+ls | wc
+wc
+ls | grep shell
+ls
+ls
+wc
+wc
+ls | grep shell
+wc
+wc
+wc .history
+ls | grep shell
+wc
+wc
+ls
+ls
+ls | wc
+ls | grep shell
+grep shell .history
+ls |grep shell
+grep shell 
+ls | grep shell
+ls
+ls | wc
+ls | wc
+ls | wc
+ls | grep shell
+ls | wc
+ls | wc
+ls | grep
+ls | wc
+ls | grep shell
+ls | grep shell | wc
+ls | wc
+ls | wc | wc
+ls | wc
+ls
+ls
+clear
+ls
+clear
+touch 1
+echo fads
+echo fdsaf > 1
+cat 1
+clear
+ls
+ls
+clear
+rm a
+clear
+ls
+ls
+ls | wc
+ls | wc | wc
+clear
+ls
+ls
+clear
+echo fas | wc
+help
+help
+ls
+ls
+clear
+help
+ls
+rename
+rename 1 11
+ls
+clear
+help
+help
+ls
+ls
+echo "affa" | wc > 14
+ wc > 14
+cat 14
+echo acbd | wc
+wc
+echo fsas
+echo f | wc
+wc
+wc
+wc
+wc
+wc
+wc
+wc 1
+ls
+ls
+wc 3
+clear
+ls
+ls
+echo af | wc
+ls
+echo | wc
+clear
+ls | wc
+clear
+ls
+ls
+clear
+ls
+ls
+ls | wc > 23
+ wc > 23
+cat 23
+ls
+ls
+clear
+ls
+ls
+ls -l
+ls -a
+clear
+ls
+ls
+clear
+ls
+ls
+clear
+ls
+ls | wc | wc
+ls
+ls
+clear
+ls | wc | cat
+ls | wc | ls
+ls 
+ls | wc
+ls | wc | wc
+ls
+ls
+ls | wc | wc
+ls | wc
+ls | wc | wc
+ls | wc
+ls | wc
+ls | wc
+ls | wc | wc
+clear
+ls
+ls
+ls | wc
+ls | wc | wc
+ls | wc
+ls | wc | wc
+clear
+ls
+ls
+help
+cat 
+ls | wc | cat
+pwd | ls
+pwd | ls | wc
+clear
+ls | cat
+ls | wc | cat
+ls | cat | wc
+ls
+ls
+ls
+clear
+ls | cat | cat
+ls | wc | wc | wc
+ls | wc
+ls | wc | wc
+ls | wc
+ls | wc |wc
+clear
+ls | wc
+ls | wc |wc
+ls | wc | cat
+ls
+ls
+clear
+clear
+ls | wc
+ls | wc | wc
+clear
+ls
+ls
+clear
+ls
+clear
+ls | wc | cat
+pwd | ls | wc
+ls | ls 
+ls | wc
+ls | wc | wc
+ls
+ls
+ls
+clear
+ls
+ls | wc
+ls | wc > 44
+ wc > 44
+cat 44
+help
+cat -n 44
+ls
+ls
+ls
+ls
+clear
+ls
+ls
+cat -n 44
+ls
+ls
+cat 44
+ls
+ls
+ls
+ls > 45
+cat -n 45
+cat 45
+clear
+ls
+clear
+cat 45 -n
+cat -n 44
+ls
+clear
+help
+ls | wc | wc
+ls | wc
+ls | wc
+ls | wc | wc
+ls | wc
+ls | wc | wc
+ls
+ls
+clear
+ls
+ls
+clear
+ls
+clear
+grep line 44
+ls
+clear
+ls
+cat 44
+cat -n 44
+cat
+ls
+clear
+ls
+cat 44
+cat -n 44
+cat -n
+cat -n 44 55
+cat 44 -n
+cat 44 55
+cat 44 1
+cat 44 11
+cat -n 44
+pwd
+pwd
+cat -n 44
+mkdir test
+ls
+clear
+ls
+ls | wc
+ls | wc > test
+ wc > test
+cat -n test
+clear
+ls
+ls
+cat test
+ls | wc
+ls | wc > test
+ wc > test
+ls
+cat test
+ls
+ls
+echo atewf  > test
+cat test
+ls
+ls
+clear
+ls
+ls
+clear
+ls
+clear
+ls
+echo fsaf
+echo sdfsaf>gg
+cat gg
+ls
+clear
+rm test
+ls
+rm 11
+rm 3
+rm 2
+rm 23
+ls
+ls
+clear
+ls
+ls
+rm 44
+rm 14
+rm 4
+rm gg
+rm test
+cat test
+ls
+ls
+rm 45
+ls
+ls
+clear
+ls
+ls
+clear
+ls
+ls
+ls
+ls
+clear
+ls | wc
+ls
+ls
+ls
+clear
+ls
+ls
+ls
+ls | wc > 1
+ wc > 1
+cat 1
+cat -n 1
+echo fasd > 2 
+echo fasd > 2 &
+ls
+cat 2
+help
+clear
+help
+history
+clear
+help
+ls
+ls
+ls
+ls
+clear
+ls
+ls
+ls
+ls
+clear
+ls
+help
+cat 44
+clear
+ls
+cat 44
+ls
+ls | wc > 44
+ wc > 44
+cat 44
+clear
+ls
+ls
+rm 44
+ls
+ls
+clear
+ls
+clear
+ls | wc | wc 
+clear
+ls | wc | wc | wc 
+ls
+ls
+clear
+ls
+ls
+ls
+clear
+cat -n 44
+ls
+ls | wc | wc > 1
+ wc > 1
+cat 1
+cat -n 1
+clear
+ls
+clear
+ls
+ls
+clear
+echo fasfs 
+echo fdasf > 2 
+echo fdasf > 2 &
+clear
+ls
+cat 2
+clear
+help
+ls
+ls | wc > 1
+ wc > 1
+cat 1
+ls | wc | wc | wc > 2 
+ls | wc | wc | wc > 2 &
+cat -n 1 2
+clear
+cat -n 2
+cat 1
+cat 2
+ls | wc | wc > 3
+ wc > 3
+cat 3
+clear
+ls
+ls
+clear
+rm 1
+rm 2
+rm 3
+clear
+ls
+clear
+help
+clear
+ls
+ls | wc > 1 
+ls | wc > 1 &
+ls
+cat 1
+ls | wc > 2
+ wc > 2
+cat 2
+clear
+ls
+clear
+rm 1 2
+ls
+clear
+ls
+clear
+ls
+clear
+ls | wc | wc | wc
+ls
+clear
+ls
+ls
+clear
+ls
+clear
+ls | wc | wc
+clear
+help
+clear
+ls
+ls | wc > 1
+ wc > 1
+cat 1
+cat -n 1
+clear
+help
+ls ~
+ls ..
+ls .. | wc | wc
+ls .. | wc | wc > 2 
+ls .. | wc | wc > 2 &
+cat 2
+clear
+rm 2
+ls
+ls
+clear
+ls
+help
+clear
+ls
+clear
+echo dsaf > 2 
+echo dsaf > 2 &
+cat 2
+cat 1 2
+clear
+ls ..
+ls .. > 3
+cat 3
+clear
+rm 2 3
+ls
+ls | wc | wc 
+clear
+ls ..
+ls .. > 2 
+ls .. > 2 &
+cat 2
+cat 1 2
+clear
+history
+clear
+pwd
+cd lab1
+ls
+rm 1
+cat 1
+ls
+touch 4
+cat 4
+cp 2 5
+cat 2 5
+clear
+grep lab 2
+clear
+help
+rename 4 22
+cat 22
+ls
+rm 22
+rename 2 22
+cat 22
+ls
+clear
+mkdir fsf
+mkdir gg
+clear
+ls
+mkdir df
+ls
+clear
+echo fdasf
+clear
+mkdir hh
+cd ..
+pwd
+clear
